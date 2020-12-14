@@ -128,17 +128,10 @@ namespace OpenGL_Game.Managers
                     //  GameScene.gameInstance.Moon = true;
 
                     gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
-                    
                     break;
 
                 default: break;
             }
-
-
-
-
-
-
         }
     }
 
@@ -151,6 +144,8 @@ namespace OpenGL_Game.Managers
             switch (entity.Name)
             {
                 case "Maze":
+
+                    gameInstance.camera.cameraPosition = gameInstance.oldposition;
                     break;
 
                 default: break;

@@ -13,7 +13,7 @@ namespace OpenGL_Game.Systems
 {
     class SystemSphereCollision :ISystem
     {
-        CollisionManager sphereHabit = new SphereCollisionManager();
+        SphereCollisionManager sphereHabit = new SphereCollisionManager();
 
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_SPHERECOLLISION);
 

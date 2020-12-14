@@ -1,4 +1,5 @@
 ﻿using OpenGL_Game.Components;
+using OpenGL_Game.Managers;
 using OpenGL_Game.Objects;
 using OpenGL_Game.Scenes;
 using System;
@@ -10,6 +11,8 @@ namespace OpenGL_Game.Systems
 {
     class SystemLineCollision : ISystem
     {
+        LineCollisionManager lineHabit = new LineCollisionManager();
+
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_LINECOLLISION);
 
         public SystemLineCollision() 
@@ -59,13 +62,17 @@ namespace OpenGL_Game.Systems
                     float cameraX = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.X, 1);
                     float cameraZ = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.Z, 1);
 
+                    //float cameraX = GameScene.gameInstance.camera.cameraPosition.X;
+                    //float cameraZ = GameScene.gameInstance.camera.cameraPosition.Z;
+
                     if (((Limit.PointA.X <= cameraX) && (Limit.PointB.X >= cameraX)) && ((Limit.PointA.Z <= cameraZ) && (Limit.PointB.Z >= cameraZ))) 
                     {
-                        System.Console.WriteLine("Collision happening with Limit");
+                        //System.Console.WriteLine("Collision happening with Limit");
+                        lineHabit.ProcessCollision(entity);
                     }
                     else
                     {
-                        System.Console.WriteLine("Not in the Limit");
+                        //System.Console.WriteLine("Not in the Limit");
                     }
                 }
             }
