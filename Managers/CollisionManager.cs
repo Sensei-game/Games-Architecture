@@ -126,7 +126,9 @@ namespace OpenGL_Game.Managers
                 case "Moon":
                     //  entityAudio.PlayAudio();
                     //  GameScene.gameInstance.Moon = true;
-                    GameScene.gameInstance.camera.cameraPosition = new Vector3(0.0f, 0.0f, 0.0f);
+
+                    gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+                    
                     break;
 
                 default: break;

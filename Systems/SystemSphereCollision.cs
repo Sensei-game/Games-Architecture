@@ -1,4 +1,5 @@
 ﻿using OpenGL_Game.Components;
+using OpenGL_Game.Managers;
 using OpenGL_Game.Objects;
 using OpenGL_Game.OBJLoader;
 using OpenGL_Game.Scenes;
@@ -12,7 +13,8 @@ namespace OpenGL_Game.Systems
 {
     class SystemSphereCollision :ISystem
     {
-        
+        CollisionManager sphereHabit = new SphereCollisionManager();
+
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_SPHERECOLLISION);
 
 
@@ -71,7 +73,9 @@ namespace OpenGL_Game.Systems
             {
                 if ((position.Position - GameScene.gameInstance.camera.cameraPosition).Length < componentCollisionSphere.Radius + GameScene.gameInstance.camera.Radius)
                 {
-                   // System.Console.WriteLine("Collision happening");
+                    // System.Console.WriteLine("Collision happening");
+
+                    sphereHabit.ProcessCollision(entity);
                 }
                 else
                 {

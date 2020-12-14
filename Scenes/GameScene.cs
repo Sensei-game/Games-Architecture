@@ -24,11 +24,12 @@ namespace OpenGL_Game.Scenes
         bool[] keysPressed = new bool[255];
 
         public Camera camera;
+        public Vector3 oldposition;
 
         public static GameScene gameInstance;
 
-        public CollisionManager SpherecollisionManager;
-        public CollisionManager LinecollisionManager;
+        //public CollisionManager SpherecollisionManager;
+        //public CollisionManager LinecollisionManager;
 
         public GameScene(SceneManager sceneManager) : base(sceneManager)
         {
@@ -36,8 +37,8 @@ namespace OpenGL_Game.Scenes
            entityManager = new EntityManager();
            systemManager = new SystemManager();
 
-           SpherecollisionManager = new SphereCollisionManager();
-            LinecollisionManager = new LineCollisionManager();
+           //SpherecollisionManager = new SphereCollisionManager();
+           // LinecollisionManager = new LineCollisionManager();
                
             // Set the title of the window
             sceneManager.Title = "Game";
@@ -60,6 +61,7 @@ namespace OpenGL_Game.Scenes
 
             // Set Camera
             camera = new Camera(new Vector3(0.0f, 1.0f, 7.0f), new Vector3(0.0f, 1.0f, 0.0f), 1.5f ,(float)(sceneManager.Width) / (float)(sceneManager.Height), 0.1f, 100f);
+           // oldposition = camera.cameraPosition;
 
             CreateEntities();
             CreateSystems();
@@ -151,6 +153,7 @@ namespace OpenGL_Game.Scenes
 
             //check position of player/camera
             System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
+            oldposition = camera.cameraPosition;
 
             if (GamePad.GetState(1).Buttons.Back == ButtonState.Pressed)
                 sceneManager.Exit();
