@@ -59,6 +59,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Components\ComponentAI.cs" />
     <Compile Include="Components\ComponentLineCollision.cs" />
     <Compile Include="Components\ComponentSphereCollision.cs" />
     <Compile Include="Components\ComponentVelocity.cs" />

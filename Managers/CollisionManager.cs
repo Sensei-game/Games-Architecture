@@ -144,7 +144,6 @@ namespace OpenGL_Game.Managers
             switch (entity.Name)
             {
                 case "Maze":
-
                     gameInstance.camera.cameraPosition = gameInstance.oldposition;
                     break;
 

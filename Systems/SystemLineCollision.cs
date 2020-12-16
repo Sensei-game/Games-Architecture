@@ -52,7 +52,7 @@ namespace OpenGL_Game.Systems
             }
         }
 
-        public void Collision(Entity entity, ComponentLineCollision collision)
+        private void Collision(Entity entity, ComponentLineCollision collision)
         {
             if(entity.Name == "Maze")
             {

@@ -64,7 +64,7 @@ namespace OpenGL_Game.Systems
             }
         }
 
-        public void Collision(Entity entity, ComponentSphereCollision componentCollisionSphere, ComponentPosition position)
+        private void Collision(Entity entity, ComponentSphereCollision componentCollisionSphere, ComponentPosition position)
         {
             //Add Camera / player entity
 

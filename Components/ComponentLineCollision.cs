@@ -27,6 +27,7 @@ namespace OpenGL_Game.Components
         //}
 
         //get the list of coodinates for each limit limits 
+
         public List<Coordinates> limits_coordinates
         {
             get { return Limits; }
@@ -38,16 +39,12 @@ namespace OpenGL_Game.Components
             get { return ComponentTypes.COMPONENT_LINECOLLISION; }
         }
 
-        public void Close()
-        {
-
-        }
-
+     
     }
 
     class Coordinates
     {
-       public Vector3 PointA;
+        public Vector3 PointA;
 
         public Vector3 PointB;
 
@@ -55,42 +52,12 @@ namespace OpenGL_Game.Components
         {
             PointA = A;
 
-            PointB = B;                 
-        }
-
-        public float X_A()
-        {
-            return PointA.X;
-        }
-
-        public float X_B()
-        {
-            return PointB.X;
-        }
-
-        public float Y_A()
-        {
-            return PointA.Y;
-        }
-
-        public float Y_B()
-        {
-            return PointB.Y;
-        }
-
-        public float Z_A()
-        {
-            return PointA.Z;
-        }
-
-        public float Z_B()
-        {
-            return PointB.Z;
+            PointB = B;
         }
 
     }
     
     
-        //Vector 3 X, Y, Z
+        
     
 }

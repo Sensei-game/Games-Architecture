@@ -74,6 +74,7 @@ namespace OpenGL_Game.Scenes
         {
             Entity newEntity;
             List<Coordinates> list = LimitList();
+            List<Points> path = PathList();
 
 
             newEntity = new Entity("Moon");
@@ -92,6 +93,7 @@ namespace OpenGL_Game.Scenes
 
             newEntity = new Entity("Wraith_Raider_Starship");
             newEntity.AddComponent(new ComponentPosition(+5.0f, 0.0f, 0.0f));
+           // newEntity.AddComponent(new ComponentAI(path));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Wraith_Raider_Starship/Wraith_Raider_Starship.obj"));
             entityManager.AddEntity(newEntity);
 
@@ -111,6 +113,13 @@ namespace OpenGL_Game.Scenes
             return limits;
         }
 
+        private List<Points> PathList()
+        {
+            List<Points> points = new List<Points>();
+            points.Add(new Points(new Vector3(5.0f, 1.0f, 7.0f)));
+
+            return points;
+        }
        
         
         //lIST OF POSITIONS/nODES FOR ai
@@ -138,6 +147,11 @@ namespace OpenGL_Game.Scenes
 
             newSystem = new SystemLineCollision();
             systemManager.AddSystem(newSystem);
+
+            // Add System AI here
+
+            //newSystem = new SystemAI();
+            //systemManager.AddSystem(newSystem);
         }
 
         /// <summary>
