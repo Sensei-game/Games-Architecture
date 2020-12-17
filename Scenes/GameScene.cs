@@ -78,7 +78,7 @@ namespace OpenGL_Game.Scenes
 
 
             newEntity = new Entity("Moon");
-            newEntity.AddComponent(new ComponentPosition(-5.0f, 0.0f, 0.0f));
+            newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Moon/moon.obj"));
             entityManager.AddEntity(newEntity);
@@ -92,15 +92,16 @@ namespace OpenGL_Game.Scenes
 
 
             newEntity = new Entity("Wraith_Raider_Starship");
-            newEntity.AddComponent(new ComponentPosition(+5.0f, 0.0f, 0.0f));
-           // newEntity.AddComponent(new ComponentAI(path));
+            newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
+           // newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +5.0f));
+            newEntity.AddComponent(new ComponentAI(path));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Wraith_Raider_Starship/Wraith_Raider_Starship.obj"));
             entityManager.AddEntity(newEntity);
 
 
             newEntity = new Entity("Intergalactic_Spaceship");
-            newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +0.7f));
-            newEntity.AddComponent(new ComponentPosition(0.0f, +1.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +0.7f));
+            newEntity.AddComponent(new ComponentPosition(0.0f, 0.0f, 0.0f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Intergalactic_Spaceship/Intergalactic_Spaceship.obj"));
             entityManager.AddEntity(newEntity);
         }
@@ -116,7 +117,11 @@ namespace OpenGL_Game.Scenes
         private List<Points> PathList()
         {
             List<Points> points = new List<Points>();
-            points.Add(new Points(new Vector3(5.0f, 1.0f, 7.0f)));
+
+            points.Add(new Points(new Vector3(5.0f, 0.0f, 0.0f))); //initial position of the entity
+            points.Add(new Points(new Vector3(5.0f, 0.0f, 7.0f)));  // target position
+            points.Add(new Points(new Vector3(-0.5f, 0.0f, 24.15f)));
+            points.Add(new Points(new Vector3(0.0f, 0.0f, 0.0f)));
 
             return points;
         }
@@ -137,8 +142,8 @@ namespace OpenGL_Game.Scenes
             newSystem = new SystemRender();
             systemManager.AddSystem(newSystem);
 
-            newSystem = new SystemPhysics();
-            systemManager.AddSystem(newSystem);
+            //newSystem = new SystemPhysics();
+            //systemManager.AddSystem(newSystem);
 
             // Add System Collision here
 
@@ -150,8 +155,8 @@ namespace OpenGL_Game.Scenes
 
             // Add System AI here
 
-            //newSystem = new SystemAI();
-            //systemManager.AddSystem(newSystem);
+            newSystem = new SystemAI();
+            systemManager.AddSystem(newSystem);
         }
 
         /// <summary>
@@ -163,10 +168,11 @@ namespace OpenGL_Game.Scenes
         public override void Update(FrameEventArgs e)
         {
             dt = (float)e.Time;
-            System.Console.WriteLine("fps=" + (int)(1.0/dt));
+           // System.Console.WriteLine("fps=" + (int)(1.0/dt));
 
             //check position of player/camera
             System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
+         
             oldposition = camera.cameraPosition;
 
             if (GamePad.GetState(1).Buttons.Back == ButtonState.Pressed)

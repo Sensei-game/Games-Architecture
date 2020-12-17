@@ -10,6 +10,19 @@ namespace OpenGL_Game.Components
     {
         public List<Points> Paths;
 
+        public enum AIstates : byte
+        {
+            idle,
+            chasing,
+            disabled
+        }
+
+        public AIstates currentstate
+        {
+            get ;
+            set ;
+        }
+
 
         public ComponentAI(List<Points> _paths)
         {
