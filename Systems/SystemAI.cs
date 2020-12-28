@@ -17,8 +17,11 @@ namespace OpenGL_Game.Systems
         //private bool confirm = false;
 
         const float a_velocity = 0.05f;
-        Points target;
-        Points CurrentPoint;
+        
+        //not private originally
+       private Points target;
+
+        //Points CurrentPoint;
 
         public SystemAI()
         {
@@ -64,8 +67,8 @@ namespace OpenGL_Game.Systems
             //    default:break;
             //}
 
-            if (CurrentPoint != path.Paths.Last())
-            {
+            //if (CurrentPoint != path.Paths.Last())
+            //{
                 Vector3 newpos = position.Position;
 
                 if (entity.Name == "Wraith_Raider_Starship")
@@ -138,7 +141,7 @@ namespace OpenGL_Game.Systems
 
                     position.Position = newpos;
                 }
-            }
+            //}
         }
 
         private void Wandering(Entity entity, ComponentPosition position, ComponentAI state)
@@ -150,7 +153,7 @@ namespace OpenGL_Game.Systems
                     //difference of position, not checking if is at the end of the list of points
                     if (position.Position == Point.point)
                     {
-                        CurrentPoint = Point;
+                        //CurrentPoint = Point;
                         if (state.list_paths.Count == state.list_paths.IndexOf(Point) + 1)
                         {
                             target = state.list_paths.ElementAt(0);

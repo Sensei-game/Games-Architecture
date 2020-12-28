@@ -8,6 +8,7 @@ using OpenGL_Game.Objects;
 using System.Drawing;
 using System;
 using System.Collections.Generic;
+using OpenTK.Audio.OpenAL;
 
 namespace OpenGL_Game.Scenes
 {
@@ -30,6 +31,8 @@ namespace OpenGL_Game.Scenes
 
         //public CollisionManager SpherecollisionManager;
         //public CollisionManager LinecollisionManager;
+
+        Vector3 sourcePosition;
 
         public GameScene(SceneManager sceneManager) : base(sceneManager)
         {
@@ -61,7 +64,9 @@ namespace OpenGL_Game.Scenes
 
             // Set Camera
             camera = new Camera(new Vector3(0.0f, 1.0f, 7.0f), new Vector3(0.0f, 1.0f, 0.0f), 1.5f ,(float)(sceneManager.Width) / (float)(sceneManager.Height), 0.1f, 100f);
-           // oldposition = camera.cameraPosition;
+            // oldposition = camera.cameraPosition;
+
+            sourcePosition = new Vector3(-5.0f, 1.0f, 0.0f);
 
             CreateEntities();
             CreateSystems();
@@ -79,6 +84,7 @@ namespace OpenGL_Game.Scenes
 
             newEntity = new Entity("Moon");
             newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Moon/moon.obj"));
             entityManager.AddEntity(newEntity);
@@ -93,7 +99,9 @@ namespace OpenGL_Game.Scenes
 
             newEntity = new Entity("Wraith_Raider_Starship");
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-           // newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +5.0f));
+            // newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +5.0f));
+
+            newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentAI(path));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Wraith_Raider_Starship/Wraith_Raider_Starship.obj"));
             entityManager.AddEntity(newEntity);
@@ -157,6 +165,9 @@ namespace OpenGL_Game.Scenes
 
             newSystem = new SystemAI();
             systemManager.AddSystem(newSystem);
+
+            newSystem = new SystemAudio();
+            systemManager.AddSystem(newSystem);
         }
 
         /// <summary>
@@ -168,12 +179,18 @@ namespace OpenGL_Game.Scenes
         public override void Update(FrameEventArgs e)
         {
             dt = (float)e.Time;
-           // System.Console.WriteLine("fps=" + (int)(1.0/dt));
+            System.Console.WriteLine("fps=" + (int)(1.0/dt));
 
             //check position of player/camera
             System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
          
             oldposition = camera.cameraPosition;
+
+            // NEW for Audio
+            // Update OpenAL Listener Position and Orientation based on the camera
+            AL.Listener(ALListener3f.Position, ref camera.cameraPosition);
+            AL.Listener(ALListenerfv.Orientation, ref camera.cameraDirection, ref camera.cameraUp);
+
 
             if (GamePad.GetState(1).Buttons.Back == ButtonState.Pressed)
                 sceneManager.Exit();
@@ -211,6 +228,11 @@ namespace OpenGL_Game.Scenes
             if (keysPressed[(char)Key.K])
             {
                 sceneManager.ChangeScene((SceneTypes)1);
+            }
+
+            if(keysPressed[(char)Key.P])
+            {
+
             }
 
             if (keysPressed[(char)Key.W])
@@ -258,6 +280,9 @@ namespace OpenGL_Game.Scenes
             sceneManager.keyboardDownDelegate -= Keyboard_KeyDown;
 
             sceneManager.keyboardUpDelegate -= Keyboard_KeyUp;
+
+            // NEW for Audio
+            entityManager.CloseAllEntities();
 
             ResourceManager.RemoveAllAssets();
         }

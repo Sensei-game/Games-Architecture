@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Components\ComponentAI.cs" />
+    <Compile Include="Components\ComponentAudio.cs" />
     <Compile Include="Components\ComponentLineCollision.cs" />
     <Compile Include="Components\ComponentSphereCollision.cs" />
     <Compile Include="Components\ComponentVelocity.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Scenes\Scene.cs" />
     <Compile Include="Systems\ISystem.cs" />
     <Compile Include="Managers\SystemManager.cs" />
+    <Compile Include="Systems\SystemAudio.cs" />
     <Compile Include="Systems\SystemLineCollision.cs" />
     <Compile Include="Systems\SystemAI.cs" />
     <Compile Include="Systems\SystemSphereCollision.cs" />

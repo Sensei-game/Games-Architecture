@@ -22,6 +22,11 @@ namespace OpenGL_Game.Components
             set { position = value; }
         }
 
+        public void Close()
+        {
+
+        }
+
         public ComponentTypes ComponentType
         {
             get { return ComponentTypes.COMPONENT_POSITION; }

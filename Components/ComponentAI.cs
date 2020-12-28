@@ -35,7 +35,12 @@ namespace OpenGL_Game.Components
             set { Paths = value; }
         }
 
-       public ComponentTypes ComponentType
+        public void Close()
+        {
+
+        }
+
+        public ComponentTypes ComponentType
        {
             get { return ComponentTypes.COMPONENT_AI; }
        }

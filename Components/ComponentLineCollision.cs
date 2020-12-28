@@ -34,6 +34,11 @@ namespace OpenGL_Game.Components
             set { Limits = value; }
         }
 
+        public void Close()
+        {
+
+        }
+
         public ComponentTypes ComponentType
         {
             get { return ComponentTypes.COMPONENT_LINECOLLISION; }

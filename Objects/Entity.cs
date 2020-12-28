@@ -25,6 +25,15 @@ namespace OpenGL_Game.Objects
             mask |= component.ComponentType;
         }
 
+        public void CallClose()
+        {
+            //sanity check
+            foreach (var component in componentList)
+            {
+                component.Close();
+            }
+        }
+
         public String Name
         {
             get { return name; }

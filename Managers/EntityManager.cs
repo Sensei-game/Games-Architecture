@@ -33,5 +33,14 @@ namespace OpenGL_Game.Managers
         {
             return entityList;
         }
+
+        public void CloseAllEntities()
+        {
+            foreach (var entity in entityList)
+            {
+                entity.CallClose();
+            }
+
+        }
     }
 }

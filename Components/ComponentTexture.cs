@@ -16,6 +16,10 @@ namespace OpenGL_Game.Components
             get { return texture; }
         }
 
+        public void Close()
+        {
+
+        }
         public ComponentTypes ComponentType
         {
             get { return ComponentTypes.COMPONENT_TEXTURE; }

@@ -22,7 +22,10 @@ namespace OpenGL_Game.Components
             set { radius = value; }
         }
 
+        public void Close()
+        {
 
+        }
 
         public ComponentTypes ComponentType
         {

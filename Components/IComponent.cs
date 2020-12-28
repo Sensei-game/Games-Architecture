@@ -11,7 +11,8 @@ namespace OpenGL_Game.Components
         COMPONENT_VELOCITY = 1 << 3,
         COMPONENT_SPHERECOLLISION = 1 << 4,
         COMPONENT_LINECOLLISION = 1 << 5,
-        COMPONENT_AI = 1 << 6
+        COMPONENT_AI = 1 << 6,
+        COMPONENT_AUDIO = 1 << 7
     }
 
     interface IComponent
@@ -20,5 +21,6 @@ namespace OpenGL_Game.Components
         {
             get;
         }
+        public void Close();
     }
 }

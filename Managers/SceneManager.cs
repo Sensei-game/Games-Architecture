@@ -3,7 +3,7 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 using OpenGL_Game.Scenes;
-
+using OpenTK.Audio;
 
 namespace OpenGL_Game.Managers
 {
@@ -24,11 +24,14 @@ namespace OpenGL_Game.Managers
         public delegate void MouseDelegate(MouseButtonEventArgs e);
         public MouseDelegate mouseDelegate;
 
+        AudioContext audioContext;
 
         public SceneManager() : base(width, height, new OpenTK.Graphics.GraphicsMode(new OpenTK.Graphics.ColorFormat(8, 8, 8, 8), 16))
         {
             this.X = windowXPos;
             this.Y = windowYPos;
+
+            audioContext = new AudioContext();
         }
 
         protected override void OnKeyDown(KeyboardKeyEventArgs e)
