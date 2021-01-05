@@ -84,6 +84,7 @@ namespace OpenGL_Game.Scenes
 
             newEntity = new Entity("Moon");
             newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
+            newEntity.AddComponent(new ComponentVelocity(0.0f, +0.05f, 0.0f));
             //newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Moon/moon.obj"));
@@ -150,8 +151,8 @@ namespace OpenGL_Game.Scenes
             newSystem = new SystemRender();
             systemManager.AddSystem(newSystem);
 
-            //newSystem = new SystemPhysics();
-            //systemManager.AddSystem(newSystem);
+            newSystem = new SystemPhysics();
+            systemManager.AddSystem(newSystem);
 
             // Add System Collision here
 
@@ -179,10 +180,10 @@ namespace OpenGL_Game.Scenes
         public override void Update(FrameEventArgs e)
         {
             dt = (float)e.Time;
-            System.Console.WriteLine("fps=" + (int)(1.0/dt));
+         //   System.Console.WriteLine("fps=" + (int)(1.0/dt));
 
             //check position of player/camera
-            System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
+          //  System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
          
             oldposition = camera.cameraPosition;
 

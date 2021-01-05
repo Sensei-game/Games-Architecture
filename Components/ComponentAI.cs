@@ -12,8 +12,9 @@ namespace OpenGL_Game.Components
 
         public enum AIstates : byte
         {
-            idle,
-            chasing,
+            idle, //default value if nothing set
+            patrol,
+            chase,
             disabled
         }
 

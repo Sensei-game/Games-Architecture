@@ -48,9 +48,6 @@ namespace OpenGL_Game.Systems
         {
             audio.SetPosition(pos);
 
-
-
-
             //AL.SourcePause(audio.audioSource);    
 
             //audio.PlaySound();

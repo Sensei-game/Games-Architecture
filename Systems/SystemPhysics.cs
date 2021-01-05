@@ -7,8 +7,7 @@ using OpenGL_Game.Components;
 using OpenGL_Game.OBJLoader;
 using OpenGL_Game.Objects;
 using OpenGL_Game.Scenes;
-
-
+using System.Linq;
 
 namespace OpenGL_Game.Systems
 {
@@ -16,7 +15,11 @@ namespace OpenGL_Game.Systems
     {
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_VELOCITY);
 
-        /// <summary>
+
+        private Vector3 newpos;
+        private const float a_velocity = 0.02f;
+        private float target;
+        
        
         //protected int pgmID;
         //protected int vsID;
@@ -78,20 +81,48 @@ namespace OpenGL_Game.Systems
                 });
 
 
-              //  Vector3 position = ((ComponentPosition)positionComponent).Position;
+                //  Vector3 position = ((ComponentPosition)positionComponent).Position;
                 //Matrix4 model = Matrix4.CreateTranslation(position);
 
 
                 //replace OnAction pos and model with Motion and change parameters
-
-                Motion((ComponentVelocity)velocityComponent, (ComponentPosition)positionComponent);
+                Motion(entity, (ComponentPosition)positionComponent);
             }
         }
 
-        private void Motion(ComponentVelocity velocity, ComponentPosition position)
+        private void Motion(Entity entity, ComponentPosition position)
         {
+            if (entity.Name == "Moon")
+            {
+                //must set position to either Y = 0 or 2
+                newpos = position.Position;
 
-            position.Position += velocity.Velocity * GameScene.dt;
+                if (position.Position.Y == target)
+                {
+                    if (target == 2.0f)
+                    {
+                        target = 0.0f;
+                    }
+                    else
+                    {
+                        target = 2.0f;
+                    }
+                }
+
+                if (position.Position.Y > target)
+                {
+                    newpos.Y -= a_velocity /** GameScene.dt*/;
+                    newpos.Y = (float)Math.Round(newpos.Y, 3);
+                }
+                
+                if( position.Position.Y < target)
+                {
+                    newpos.Y += a_velocity /** GameScene.dt*/;
+                    newpos.Y = (float)Math.Round(newpos.Y, 3);
+                }
+                position.Position = newpos;
+
+            }
         }
     }
 }
