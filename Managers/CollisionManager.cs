@@ -6,8 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-
+using OpenGL_Game.Components;
 
 namespace OpenGL_Game.Managers
 {
@@ -117,17 +116,32 @@ namespace OpenGL_Game.Managers
     class SphereCollisionManager : CollisionManager
     {
         GameScene gameInstance = GameScene.gameInstance;
-
+        bool removed = false;
         public override void ProcessCollision(Entity entity)
         {
-            //ComponentAudio entityAudio = entity.GetComponent<ComponentAudio>();
+            ComponentAudio entityAudio = (ComponentAudio)entity.GetComponent<ComponentAudio>();
+            ComponentPosition entityPosition = (ComponentPosition)entity.GetPosition<ComponentPosition>();
+            ComponentGeometry componentGeometry = (ComponentGeometry)entity.GetGeometry<ComponentGeometry>();
+
             switch (entity.Name)
             {
                 case "Moon":
-                    //  entityAudio.PlayAudio();
-                    //  GameScene.gameInstance.Moon = true;
+                    if (removed == false)
+                    {
+                        gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
 
-                    gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+                        //PlaySound will also update position
+                        entityAudio.PlaySound(entityPosition.Position);
+                        ++gameInstance.score;
+                        componentGeometry.Geometry().RemoveGeometry();
+                        removed = true;
+                    }
+                    break;
+
+                case "Wraith_Raider_Starship":
+
+                    gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f,-15.0f);
+                    --gameInstance.life;
                     break;
 
                 default: break;

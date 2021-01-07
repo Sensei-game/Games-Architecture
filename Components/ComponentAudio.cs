@@ -14,7 +14,7 @@ namespace OpenGL_Game.Components
         int audioSource;
         Vector3 sourcePosition;
         private int audio;
-
+        
         public ComponentAudio(string audioName)
         {
             audio = ResourceManager.LoadAudio(audioName);
@@ -25,36 +25,34 @@ namespace OpenGL_Game.Components
 
             AL.Source(audioSource, ALSourceb.Looping, true); // source loops infinitely
 
-                sourcePosition = new Vector3(10.0f, 0.0f, 0.0f); // give the source a position
+            // sourcePosition = new Vector3(10.0f, 0.0f, 0.0f); // give the source a position
 
-            AL.Source(audioSource, ALSource3f.Position, ref sourcePosition);
-                  
-           AL.SourcePlay(audioSource); // play the audio source
+            // AL.Source(audioSource, ALSource3f.Position, ref sourcePosition);
+
+            AL.SourcePlay(audioSource); // play the audio source
         }
 
-        public void SetPosition(Vector3 emitterPosition)
+        public void SetMovingPosition(Vector3 emitterPosition)
         {
             if (emitterPosition != sourcePosition)
             {
                 sourcePosition = emitterPosition;
+
+                //AL.Source(audioSource, ALSourceb.Looping, true);
+
                 AL.Source(audioSource, ALSource3f.Position, ref sourcePosition);
 
-               // AL.SourcePlay(audioSource); // play the audio source
+                // AL.SourcePlay(audioSource); // play the audio source
             }
-            //PlaySound();
         }
         
-
-        public void PlaySound()
+        public void PlaySound(Vector3 singlePos)
         {
-            //audioSource = AL.GenSource();
-            //AL.Source(audioSource, ALSourcei.Buffer, audio); // attach the buffer to a source
+            SetMovingPosition(singlePos);
 
-            //AL.Source(audioSource, ALSourceb.Looping, true); // source loops infinitely
+            AL.Source(audioSource, ALSourceb.Looping, false); // source loops infinitely NO
 
-           // AL.Source(audioSource, ALSource3f.Position, ref sourcePosition);
-
-           // AL.SourcePlay(audioSource); // play the audio source
+            AL.SourcePlay(audioSource); // play the audio source
         }
 
         public int Audio 

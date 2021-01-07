@@ -66,21 +66,14 @@ namespace OpenGL_Game.Systems
 
         private void Collision(Entity entity, ComponentSphereCollision componentCollisionSphere, ComponentPosition position)
         {
-            //Add Camera / player entity
+            //Add Camera / player entity no need
 
             //Moon Collision
-            if (entity.Name == "Moon")
-            {
-                if ((position.Position - GameScene.gameInstance.camera.cameraPosition).Length < componentCollisionSphere.Radius + GameScene.gameInstance.camera.Radius)
-                {
-                    // System.Console.WriteLine("Collision happening");
 
-                    sphereHabit.ProcessCollision(entity);
-                }
-                else
-                {
-                   // System.Console.WriteLine("Not touchy");
-                }
+            if ((position.Position - GameScene.gameInstance.camera.cameraPosition).Length < componentCollisionSphere.Radius + GameScene.gameInstance.camera.Radius)
+            {
+                // System.Console.WriteLine("Collision happening");
+                sphereHabit.ProcessCollision(entity);
             }
         }
 

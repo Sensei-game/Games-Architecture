@@ -28,6 +28,8 @@ namespace OpenGL_Game.Scenes
         public Vector3 oldposition;
 
         public static GameScene gameInstance;
+        public int score = 000;
+        public int life = 3;
 
         //public CollisionManager SpherecollisionManager;
         //public CollisionManager LinecollisionManager;
@@ -85,7 +87,7 @@ namespace OpenGL_Game.Scenes
             newEntity = new Entity("Moon");
             newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
             newEntity.AddComponent(new ComponentVelocity(0.0f, +0.05f, 0.0f));
-            //newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
+            newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Moon/moon.obj"));
             entityManager.AddEntity(newEntity);
@@ -100,7 +102,7 @@ namespace OpenGL_Game.Scenes
 
             newEntity = new Entity("Wraith_Raider_Starship");
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-            // newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +5.0f));
+            newEntity.AddComponent(new ComponentSphereCollision(1.4f));
 
             newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentAI(path));
@@ -180,10 +182,10 @@ namespace OpenGL_Game.Scenes
         public override void Update(FrameEventArgs e)
         {
             dt = (float)e.Time;
-         //   System.Console.WriteLine("fps=" + (int)(1.0/dt));
+            //   System.Console.WriteLine("fps=" + (int)(1.0/dt));
 
             //check position of player/camera
-          //  System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
+            System.Console.WriteLine("x =" + (float)camera.cameraPosition.X + " , y =" + (float)camera.cameraPosition.Y + " , z =" + (float)camera.cameraPosition.Z);
          
             oldposition = camera.cameraPosition;
 
@@ -231,11 +233,6 @@ namespace OpenGL_Game.Scenes
                 sceneManager.ChangeScene((SceneTypes)1);
             }
 
-            if(keysPressed[(char)Key.P])
-            {
-
-            }
-
             if (keysPressed[(char)Key.W])
             {
                 camera.RotateZ(0.01f);
@@ -244,6 +241,11 @@ namespace OpenGL_Game.Scenes
             if (keysPressed[(char)Key.S])
             {
                 camera.RotateZ(-0.01f);
+            }
+
+            if(life <= 0)
+            {
+                sceneManager.ChangeScene((SceneTypes)3);
             }
 
         }
@@ -265,10 +267,11 @@ namespace OpenGL_Game.Scenes
             // Action ALL systems
             systemManager.ActionSystems(entityManager);
 
-            // Render score
+            // Render score and life
             float width = sceneManager.Width, height = sceneManager.Height, fontSize = Math.Min(width, height) / 10f;
             GUI.clearColour = Color.Transparent;
-            GUI.Label(new Rectangle(0, 0, (int)width, (int)(fontSize * 2f)), "Score: 000", 18, StringAlignment.Near, Color.White);
+            GUI.Label(new Rectangle(0, 0, (int)width, (int)(fontSize * 2f)), "Score: " + score, 18, StringAlignment.Near, Color.White);
+            GUI.Label(new Rectangle(700, 15, (int)width, (int)(fontSize * 2f)), "Lifes: " + life, 18, StringAlignment.Near, Color.Coral);
             GUI.Render();
         }
 

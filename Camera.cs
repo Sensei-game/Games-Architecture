@@ -36,14 +36,13 @@ namespace OpenGL_Game
         {
             cameraPosition += move*cameraDirection;
             UpdateView();
-        }
+        } 
 
         public void Translate(Vector3 move)
         {
             cameraPosition += move;
             UpdateView();
         }
-
 
         public void RotateY(float angle)
         {

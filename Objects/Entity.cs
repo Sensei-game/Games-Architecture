@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using OpenGL_Game.Components;
 
 namespace OpenGL_Game.Objects
@@ -24,7 +25,7 @@ namespace OpenGL_Game.Objects
             componentList.Add(component);
             mask |= component.ComponentType;
         }
-
+      
         public void CallClose()
         {
             //sanity check
@@ -47,6 +48,20 @@ namespace OpenGL_Game.Objects
         public List<IComponent> Components
         {
             get { return componentList; }
+        }
+
+        public IComponent GetComponent<ComponentAudio>()
+        {
+            return componentList.Find(value => value.ComponentType == ComponentTypes.COMPONENT_AUDIO);
+        }
+
+        public IComponent GetPosition<ComponentPosition>()
+        {
+            return componentList.Find(value => value.ComponentType == ComponentTypes.COMPONENT_POSITION);
+        }
+        public IComponent GetGeometry<ComponentGeometry>()
+        {
+            return componentList.Find(value => value.ComponentType == ComponentTypes.COMPONENT_GEOMETRY);
         }
     }
 }

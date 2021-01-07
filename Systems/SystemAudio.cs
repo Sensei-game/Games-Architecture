@@ -40,13 +40,20 @@ namespace OpenGL_Game.Systems
 
                 //((ComponentAudio)audioComponent).SetPosition(position);
 
-                Play(position, Audio_Component);
+                PlayPosition(entity ,position, Audio_Component);
             }
         }
 
-        private void Play(Vector3 pos, ComponentAudio audio)
+        private void PlayPosition(Entity entity, Vector3 pos, ComponentAudio audio)
         {
-            audio.SetPosition(pos);
+            if (entity.Name != "Moon")
+            {
+                audio.SetMovingPosition(pos);
+            }
+            //if(entity.Name == "Wraith_Raider_Starship")
+            //{
+            //    audio.PlayLoopingSound();
+            //}
 
             //AL.SourcePause(audio.audioSource);    
 
