@@ -68,6 +68,7 @@ namespace OpenGL_Game.Systems
             //Add Camera / player entity no need
 
             //Moon Collision
+            
 
             if ((position.Position - GameScene.gameInstance.camera.cameraPosition).Length < componentCollisionSphere.Radius + GameScene.gameInstance.camera.Radius)
             {

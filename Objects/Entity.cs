@@ -8,7 +8,7 @@ namespace OpenGL_Game.Objects
 {
     class Entity
     {
-        string name;
+        public string name;
         List<IComponent> componentList = new List<IComponent>();
         ComponentTypes mask;
  
@@ -35,7 +35,7 @@ namespace OpenGL_Game.Objects
             }
         }
 
-        public String Name
+        public string Name
         {
             get { return name; }
         }
@@ -50,9 +50,9 @@ namespace OpenGL_Game.Objects
             get { return componentList; }
         }
 
-        public IComponent GetComponent<ComponentAudio>()
+        public ComponentAudio GetComponent<ComponentAudio>()
         {
-            return componentList.Find(value => value.ComponentType == ComponentTypes.COMPONENT_AUDIO);
+            return (ComponentAudio)componentList.Find(value => value.ComponentType == ComponentTypes.COMPONENT_AUDIO);
         }
 
         public IComponent GetPosition<ComponentPosition>()

@@ -24,7 +24,7 @@ namespace OpenGL_Game.Components
 
         public void Close()
         {
-
+            radius = 0.0f;
         }
 
         public ComponentTypes ComponentType

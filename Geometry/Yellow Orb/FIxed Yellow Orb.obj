@@ -1,6 +1,6 @@
 # Blender v2.90.1 OBJ File: ''
 # www.blender.org
-mtllib Geometry/Yellow Orb/Fixed Yellow Orb.mtl
+mtllib  Geometry/Yellow Orb/Fixed Yellow Orb.mtl
 o Sphere
 v 0.000000 0.000000 -0.600000
 v 0.000000 0.117054 -0.588471

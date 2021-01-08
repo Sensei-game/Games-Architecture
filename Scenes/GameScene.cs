@@ -18,7 +18,7 @@ namespace OpenGL_Game.Scenes
     class GameScene : Scene
     {
         public static float dt = 0;
-        EntityManager entityManager;
+        public EntityManager entityManager;
         SystemManager systemManager;
        
 
@@ -83,13 +83,19 @@ namespace OpenGL_Game.Scenes
             List<Coordinates> list = LimitList();
             List<Points> path = PathList();
 
-
             newEntity = new Entity("Moon");
             newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
             newEntity.AddComponent(new ComponentVelocity(0.0f, +0.05f, 0.0f));
-            newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Blue Orb/Fixed Blue Orb.obj"));
+            entityManager.AddEntity(newEntity);
+
+            newEntity = new Entity("Yellow 1");
+            newEntity.AddComponent(new ComponentPosition(5.0f, 1.0f, 0.0f));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro points.wav"));
+            newEntity.AddComponent(new ComponentSphereCollision(1.8f));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Yellow Orb/Fixed Yellow Orb.obj"));
             entityManager.AddEntity(newEntity);
 
 
@@ -110,14 +116,7 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentAI(path));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
-            entityManager.AddEntity(newEntity);
-
-
-            newEntity = new Entity("Intergalactic_Spaceship");
-            //newEntity.AddComponent(new ComponentVelocity(0.0f, 0.0f, +0.7f));
-            newEntity.AddComponent(new ComponentPosition(0.0f, 0.0f, 0.0f));
-            newEntity.AddComponent(new ComponentGeometry("Geometry/Intergalactic_Spaceship/Intergalactic_Spaceship.obj"));
-            entityManager.AddEntity(newEntity);
+            entityManager.AddEntity(newEntity);          
         }
 
         private List<Coordinates> LimitList()

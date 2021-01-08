@@ -117,31 +117,38 @@ namespace OpenGL_Game.Managers
     class SphereCollisionManager : CollisionManager
     {
         GameScene gameInstance = GameScene.gameInstance;
-       
-
-
-        private bool removed = false;
+        
+               
         private bool invincible = false;
         public override void ProcessCollision(Entity entity)
         {
-            ComponentAudio Audio = (ComponentAudio)entity.GetComponent<ComponentAudio>();
+            ComponentGeometry geometry = (ComponentGeometry)entity.GetGeometry<ComponentGeometry>();
             ComponentPosition position = (ComponentPosition)entity.GetPosition<ComponentPosition>();
-            ComponentGeometry Geometry = (ComponentGeometry)entity.GetGeometry<ComponentGeometry>();
+            ComponentAudio Audio = entity.GetComponent<ComponentAudio>();
 
             switch (entity.Name)
             {
                 //Add more Points
                 case "Moon":
-                    if (removed == false)
-                    {
-                        gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
 
-                        Superstate();//No Superstate for Yellow Points
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+                                        
+                    Superstate();//No Superstate for Yellow Points
 
-                        //PlaySound will also update position
+                    //PlaySound will also update position
 
-                        Remove(Audio, position, Geometry);
-                    }
+                    Remove(entity.Name, Audio, geometry);
+                    
+                    break;
+
+                case "Yellow 1":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    
                     break;
 
                 case "Wraith_Raider_Starship":
@@ -155,6 +162,7 @@ namespace OpenGL_Game.Managers
                     {
                         position.Position = new Vector3(5.0f, 0.0f, 0.0f); // change to first Node
                         invincible = false;
+                        gameInstance.score+=10;
                     }
                     break;
 
@@ -168,12 +176,13 @@ namespace OpenGL_Game.Managers
             invincible = true;
         }
 
-        private void Remove(ComponentAudio entityAudio, ComponentPosition entityPosition, ComponentGeometry componentGeometry)
+        private void Remove(string name, ComponentAudio entityAudio,  ComponentGeometry geometry)
         {
-            entityAudio.PlaySound(entityPosition.Position);
+            entityAudio.Playonce();
             ++gameInstance.score;
-            componentGeometry.Geometry().RemoveGeometry();
-            removed = true;
+            gameInstance.entityManager.DeleteEntity(name);
+            geometry.Geometry().RemoveGeometry();
+
         }
     }
 

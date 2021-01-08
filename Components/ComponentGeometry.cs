@@ -19,7 +19,7 @@ namespace OpenGL_Game.Components
 
         public void Close()
         {
-
+            geometry.RemoveGeometry();
         }
 
         public Geometry Geometry()

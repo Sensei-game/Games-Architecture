@@ -12,7 +12,7 @@ namespace OpenGL_Game.Systems
     class SystemAudio:ISystem
     {
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_AUDIO);
-
+              
         public string Name
         {
             get { return "SystemAudio"; }
@@ -46,10 +46,16 @@ namespace OpenGL_Game.Systems
 
         private void PlayPosition(Entity entity, Vector3 pos, ComponentAudio audio)
         {
-            if (entity.Name != "Moon")
+            if (entity.Name == "Wraith_Raider_Starship")
             {
                 audio.SetMovingPosition(pos);
             }
+            else
+            {
+                audio.PlaySound(pos);
+            }
+
+
             //if(entity.Name == "Wraith_Raider_Starship")
             //{
             //    audio.PlayLoopingSound();
@@ -59,5 +65,7 @@ namespace OpenGL_Game.Systems
 
             //audio.PlaySound();
         }
+
+       
     }
 }

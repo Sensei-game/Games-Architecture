@@ -36,7 +36,7 @@ namespace OpenGL_Game.Components
 
         public void Close()
         {
-
+            Limits.Clear();
         }
 
         public ComponentTypes ComponentType

@@ -29,6 +29,12 @@ namespace OpenGL_Game.Managers
             );
         }
 
+        public void DeleteEntity(string entity)
+        {
+            Entity thing = FindEntity(entity);
+            thing.name = "Removed";
+        }
+
         public List<Entity> Entities()
         {
             return entityList;

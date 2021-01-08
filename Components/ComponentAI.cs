@@ -38,7 +38,7 @@ namespace OpenGL_Game.Components
 
         public void Close()
         {
-
+            Paths.Clear();
         }
 
         public ComponentTypes ComponentType
