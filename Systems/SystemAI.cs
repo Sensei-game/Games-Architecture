@@ -17,18 +17,17 @@ namespace OpenGL_Game.Systems
         //private bool confirm = false;
 
         const float a_velocity = 0.05f;
-
+     
         //not private originally
        private Vector3 target;
-        private Points current_target;
-
-        private Vector3 Target;
+       private Points current_target;
+       private Vector3 Target;
 
         //Points CurrentPoint;
 
         public SystemAI()
         {
-
+            
         }
         public string Name
         {
@@ -245,5 +244,6 @@ namespace OpenGL_Game.Systems
                 }
              }
         }
+
     }
 }

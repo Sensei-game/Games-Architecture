@@ -17,7 +17,6 @@ namespace OpenGL_Game.Systems
 
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_SPHERECOLLISION);
 
-
         public SystemSphereCollision()
         {
 
@@ -76,6 +75,5 @@ namespace OpenGL_Game.Systems
                 sphereHabit.ProcessCollision(entity);
             }
         }
-
     }
 }

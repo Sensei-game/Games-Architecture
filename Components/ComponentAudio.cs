@@ -52,7 +52,7 @@ namespace OpenGL_Game.Components
 
             AL.Source(audioSource, ALSourceb.Looping, false); // source loops infinitely NO
 
-            AL.SourcePlay(audioSource); // play the audio source
+          //  AL.SourcePlay(audioSource); // play the audio source
         }
 
         public int Audio 

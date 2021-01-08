@@ -34,7 +34,7 @@ namespace OpenGL_Game.Scenes
         //public CollisionManager SpherecollisionManager;
         //public CollisionManager LinecollisionManager;
 
-        Vector3 sourcePosition;
+        //Vector3 sourcePosition;
 
         public GameScene(SceneManager sceneManager) : base(sceneManager)
         {
@@ -65,10 +65,10 @@ namespace OpenGL_Game.Scenes
             GL.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
             // Set Camera
-            camera = new Camera(new Vector3(0.0f, 1.0f, 7.0f), new Vector3(0.0f, 1.0f, 0.0f), 1.5f ,(float)(sceneManager.Width) / (float)(sceneManager.Height), 0.1f, 100f);
+            camera = new Camera(new Vector3(0.0f, 1.0f, 7.0f), new Vector3(0.0f, 1.0f, 0.0f), 0.8f ,(float)(sceneManager.Width) / (float)(sceneManager.Height), 0.1f, 100f);
             // oldposition = camera.cameraPosition;
 
-            sourcePosition = new Vector3(-5.0f, 1.0f, 0.0f);
+            //sourcePosition = new Vector3(-5.0f, 1.0f, 0.0f);
 
             CreateEntities();
             CreateSystems();
@@ -89,24 +89,27 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentVelocity(0.0f, +0.05f, 0.0f));
             newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1.8f));
-            newEntity.AddComponent(new ComponentGeometry("Geometry/Moon/moon.obj"));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Blue Orb/Fixed Blue Orb.obj"));
             entityManager.AddEntity(newEntity);
 
 
             newEntity = new Entity("Maze");
-            newEntity.AddComponent(new ComponentPosition(28.0f, 0.0f, -25.0f));
+            newEntity.AddComponent(new ComponentPosition(28.0f, -0.5f, -25.0f));
             newEntity.AddComponent(new ComponentLineCollision(list));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Maze/maze.obj"));
             entityManager.AddEntity(newEntity);
 
+            newEntity = new Entity("Ground");
+            newEntity.AddComponent(new ComponentPosition(26.5f, 0.80f, -24.0f));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Ground/ground final.obj"));
+            entityManager.AddEntity(newEntity);
 
             newEntity = new Entity("Wraith_Raider_Starship");
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-            newEntity.AddComponent(new ComponentSphereCollision(1.4f));
-
+            newEntity.AddComponent(new ComponentSphereCollision(0.5f));
             newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
             newEntity.AddComponent(new ComponentAI(path));
-            newEntity.AddComponent(new ComponentGeometry("Geometry/Wraith_Raider_Starship/Wraith_Raider_Starship.obj"));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
             entityManager.AddEntity(newEntity);
 
 

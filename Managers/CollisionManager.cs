@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OpenGL_Game.Components;
+using OpenGL_Game.Systems;
 
 namespace OpenGL_Game.Managers
 {
@@ -42,8 +43,8 @@ namespace OpenGL_Game.Managers
 
         // line/circle
 
-      
-     
+
+
         ///
         //bool lineCircle(float x1, float y1, float x2, float y2, float cx, float cy, float r)
         //{
@@ -116,36 +117,63 @@ namespace OpenGL_Game.Managers
     class SphereCollisionManager : CollisionManager
     {
         GameScene gameInstance = GameScene.gameInstance;
-        bool removed = false;
+       
+
+
+        private bool removed = false;
+        private bool invincible = false;
         public override void ProcessCollision(Entity entity)
         {
-            ComponentAudio entityAudio = (ComponentAudio)entity.GetComponent<ComponentAudio>();
-            ComponentPosition entityPosition = (ComponentPosition)entity.GetPosition<ComponentPosition>();
-            ComponentGeometry componentGeometry = (ComponentGeometry)entity.GetGeometry<ComponentGeometry>();
+            ComponentAudio Audio = (ComponentAudio)entity.GetComponent<ComponentAudio>();
+            ComponentPosition position = (ComponentPosition)entity.GetPosition<ComponentPosition>();
+            ComponentGeometry Geometry = (ComponentGeometry)entity.GetGeometry<ComponentGeometry>();
 
             switch (entity.Name)
             {
+                //Add more Points
                 case "Moon":
                     if (removed == false)
                     {
                         gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
 
+                        Superstate();//No Superstate for Yellow Points
+
                         //PlaySound will also update position
-                        entityAudio.PlaySound(entityPosition.Position);
-                        ++gameInstance.score;
-                        componentGeometry.Geometry().RemoveGeometry();
-                        removed = true;
+
+                        Remove(Audio, position, Geometry);
                     }
                     break;
 
                 case "Wraith_Raider_Starship":
-
-                    gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f,-15.0f);
-                    --gameInstance.life;
+                  
+                    if (invincible == false)
+                    {
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
+                        --gameInstance.life;
+                    }
+                    else
+                    {
+                        position.Position = new Vector3(5.0f, 0.0f, 0.0f); // change to first Node
+                        invincible = false;
+                    }
                     break;
 
                 default: break;
             }
+        }
+
+        private void Superstate()
+        {
+           // gameInstance.camera.Radius = 0.0f;
+            invincible = true;
+        }
+
+        private void Remove(ComponentAudio entityAudio, ComponentPosition entityPosition, ComponentGeometry componentGeometry)
+        {
+            entityAudio.PlaySound(entityPosition.Position);
+            ++gameInstance.score;
+            componentGeometry.Geometry().RemoveGeometry();
+            removed = true;
         }
     }
 
