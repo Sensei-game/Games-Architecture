@@ -70,10 +70,6 @@ namespace OpenGL_Game.Systems
                         //System.Console.WriteLine("Collision happening with Limit");
                         lineHabit.ProcessCollision(entity);
                     }
-                    else
-                    {
-                        //System.Console.WriteLine("Not in the Limit");
-                    }
                 }
             }
         }

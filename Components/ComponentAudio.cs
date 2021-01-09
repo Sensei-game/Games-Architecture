@@ -17,6 +17,11 @@ namespace OpenGL_Game.Components
 
         private bool notPlayed = true;
 
+        private string audiosourcedeath = "Audio/Ghost kill.wav";   /*= insert name path;*/
+        private int audioDeath;
+        private int DeathSource;
+        
+
         public ComponentAudio(string audioName)
         {
             audio = ResourceManager.LoadAudio(audioName);
@@ -55,7 +60,7 @@ namespace OpenGL_Game.Components
 
         }
         
-        public void PlaySound(Vector3 singlePos)
+        public void UpdatePosition(Vector3 singlePos)
         {
             if (singlePos != sourcePosition)
             {
@@ -69,6 +74,17 @@ namespace OpenGL_Game.Components
             AL.Source(audioSource, ALSource3f.Position, ref sourcePosition);
             AL.SourcePlay(audioSource);
         }
+
+        public void PlayDeath()
+        {
+            audioDeath = ResourceManager.LoadAudio(audiosourcedeath);
+            DeathSource = AL.GenSource();
+            AL.Source(DeathSource, ALSourcei.Buffer, audioDeath);
+            AL.Source(DeathSource, ALSourceb.Looping, false); // source loops infinitely NO
+            AL.Source(DeathSource, ALSource3f.Position, ref sourcePosition);
+            AL.SourcePlay(DeathSource);
+        }
+
 
         public int Audio 
         {

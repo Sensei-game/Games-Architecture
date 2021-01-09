@@ -46,26 +46,15 @@ namespace OpenGL_Game.Systems
 
         private void PlayPosition(Entity entity, Vector3 pos, ComponentAudio audio)
         {
-            if (entity.Name == "Wraith_Raider_Starship")
+            //change this to blues
+            if (entity.Name == "Blue 1" || entity.Name == "Blue 2" || entity.Name == "Blue 3" || entity.Name == "Blue 4" || entity.Name == "Blue 5")
             {
                 audio.SetMovingPosition(pos);
             }
             else
             {
-                audio.PlaySound(pos);
+                audio.UpdatePosition(pos);
             }
-
-
-            //if(entity.Name == "Wraith_Raider_Starship")
-            //{
-            //    audio.PlayLoopingSound();
-            //}
-
-            //AL.SourcePause(audio.audioSource);    
-
-            //audio.PlaySound();
         }
-
-       
     }
 }

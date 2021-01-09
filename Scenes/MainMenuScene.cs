@@ -9,6 +9,8 @@ namespace OpenGL_Game.Scenes
 {
     class MainMenuScene : Scene
     {
+  
+
         public MainMenuScene(SceneManager sceneManager) : base(sceneManager)
         {
             // Set the title of the window
@@ -33,11 +35,12 @@ namespace OpenGL_Game.Scenes
             GL.LoadIdentity();
             GL.Ortho(0, sceneManager.Width, 0, sceneManager.Height, -1, 1);
 
-            GUI.clearColour = Color.CornflowerBlue;
+            GUI.clearColour = Color.DarkGreen;
 
             //Display the Title
             float width = sceneManager.Width, height = sceneManager.Height, fontSize = Math.Min(width, height) / 10f;
             GUI.Label(new Rectangle(0, (int)(fontSize / 2f), (int)width, (int)(fontSize * 2f)), "Main Menu", (int)fontSize, StringAlignment.Center);
+            GUI.Label(new Rectangle(0, 130, (int)width, (int)(fontSize * 2f)), "Warning: Loud Sound Effects", 35 , StringAlignment.Center, Color.DarkRed);
 
             GUI.Render();
         }

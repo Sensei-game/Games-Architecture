@@ -230,10 +230,7 @@
     <Content Include="Audio\buzz.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Audio\Phantom sound.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Audio\Retro game over.wav">
+    <Content Include="Audio\Ghost kill.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Audio\Retro points.wav">

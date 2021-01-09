@@ -39,7 +39,7 @@ namespace OpenGL_Game.Scenes
             GL.LoadIdentity();
             GL.Ortho(0, sceneManager.Width, 0, sceneManager.Height, -1, 1);
 
-            GUI.clearColour = Color.CornflowerBlue;
+            GUI.clearColour = Color.DarkMagenta;
 
             //Display the Title
             float width = sceneManager.Width, height = sceneManager.Height, fontSize = Math.Min(width, height) / 10f;

@@ -16,7 +16,7 @@ namespace OpenGL_Game.Systems
         const ComponentTypes MASK = (ComponentTypes.COMPONENT_POSITION | ComponentTypes.COMPONENT_AI);
         //private bool confirm = false;
 
-        const float a_velocity = 0.05f;
+       public static float a_velocity = 0.05f;
      
         //not private originally
        private Vector3 target;
@@ -74,7 +74,7 @@ namespace OpenGL_Game.Systems
 
             
 
-            if (entity.Name == "Wraith_Raider_Starship")
+            if (entity.Name == "Ghost")
             {
                 ///<summary>
                 ///for (int i = 0; i < path.list_paths.Count; i++)
@@ -225,7 +225,7 @@ namespace OpenGL_Game.Systems
                 if(Vector3.Distance(position.Position, GameScene.gameInstance.oldposition) < 5.0f)
                 {
                     state.currentstate = ComponentAI.AIstates.chase;
-                    System.Console.WriteLine(state.currentstate);
+                   // System.Console.WriteLine(state.currentstate);
 
                    Target = GameScene.gameInstance.oldposition;
                     
@@ -234,13 +234,11 @@ namespace OpenGL_Game.Systems
                 else if(Vector3.Distance(position.Position, GameScene.gameInstance.oldposition) >= 5.0f)
                 {
                     state.currentstate = ComponentAI.AIstates.patrol;
-                    System.Console.WriteLine(state.currentstate);
+                   // System.Console.WriteLine(state.currentstate);
                     Patrol(entity, position, state);
                     //  low_alert = true;
 
                     Target = current_target.point;
-
-
                 }
              }
         }

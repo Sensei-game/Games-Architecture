@@ -92,37 +92,60 @@ namespace OpenGL_Game.Systems
 
         private void Motion(Entity entity, ComponentPosition position)
         {
-            if (entity.Name == "Moon")
+            //chnage to switch case
+            switch(entity.Name)
             {
-                //must set position to either Y = 0 or 2
-                newpos = position.Position;
+                case "Blue 1":
+                    Calculate(position);
+                    break;
 
-                if (position.Position.Y == target)
-                {
-                    if (target == 2.0f)
-                    {
-                        target = 0.0f;
-                    }
-                    else
-                    {
-                        target = 2.0f;
-                    }
-                }
+                case "Blue 2":
+                    Calculate(position);
+                    break;
 
-                if (position.Position.Y > target)
-                {
-                    newpos.Y -= a_velocity /** GameScene.dt*/;
-                    newpos.Y = (float)Math.Round(newpos.Y, 3);
-                }
-                
-                if( position.Position.Y < target)
-                {
-                    newpos.Y += a_velocity /** GameScene.dt*/;
-                    newpos.Y = (float)Math.Round(newpos.Y, 3);
-                }
-                position.Position = newpos;
+                case "Blue 3":
+                    Calculate(position);
+                    break;
 
+                case "Blue 4":
+                    Calculate(position);
+                    break;
+
+                case "Blue 5":
+                    Calculate(position);
+                    break;
+
+                default:break;
+            }           
+        }
+        private void Calculate(ComponentPosition position)
+        {
+            newpos = position.Position;
+
+            if (position.Position.Y == target)
+            {
+                if (target == 1.2f)
+                {
+                    target = 0.0f;
+                }
+                else
+                {
+                    target = 1.2f;
+                }
             }
+
+            if (position.Position.Y > target)
+            {
+                newpos.Y -= a_velocity /** GameScene.dt*/;
+                newpos.Y = (float)Math.Round(newpos.Y, 3);
+            }
+
+            if (position.Position.Y < target)
+            {
+                newpos.Y += a_velocity /** GameScene.dt*/;
+                newpos.Y = (float)Math.Round(newpos.Y, 3);
+            }
+            position.Position = newpos;
         }
     }
 }

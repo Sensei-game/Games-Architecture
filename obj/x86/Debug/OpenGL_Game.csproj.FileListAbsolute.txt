@@ -45,7 +45,6 @@ E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\D
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Yellow Orb\FIxed Yellow Orb.obj
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Blue Orb\Fixed Blue Orb.mtl
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Blue Orb\Fixed Blue Orb.obj
-E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Phantom sound.wav
-E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro game over.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro points.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro super.wav
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Ghost kill.wav

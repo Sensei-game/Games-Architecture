@@ -1,13 +1,9 @@
 ﻿using OpenGL_Game.Objects;
 using OpenGL_Game.Scenes;
 using OpenTK;
-using OpenGL_Game.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using OpenGL_Game.Components;
-using OpenGL_Game.Systems;
+
+
 
 namespace OpenGL_Game.Managers
 {
@@ -25,7 +21,7 @@ namespace OpenGL_Game.Managers
             Entity entity;
             Collisiontypes type;
         }
-
+       
         //public void CollisionCamera(Entity entity, )
         //{
 
@@ -129,7 +125,7 @@ namespace OpenGL_Game.Managers
             switch (entity.Name)
             {
                 //Add more Points
-                case "Moon":
+                case "Blue 1":
 
                     //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
                                         
@@ -141,6 +137,54 @@ namespace OpenGL_Game.Managers
                     
                     break;
 
+                case "Blue 2":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    Superstate();//No Superstate for Yellow Points
+
+                    //PlaySound will also update position
+
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Blue 3":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    Superstate();//No Superstate for Yellow Points
+
+                    //PlaySound will also update position
+
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Blue 4":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    Superstate();//No Superstate for Yellow Points
+
+                    //PlaySound will also update position
+
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Blue 5":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    Superstate();//No Superstate for Yellow Points
+
+                    //PlaySound will also update position
+
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
                 case "Yellow 1":
 
                     //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
@@ -148,21 +192,362 @@ namespace OpenGL_Game.Managers
                     //PlaySound will also update position
                     Remove(entity.Name, Audio, geometry);
 
-                    
                     break;
 
-                case "Wraith_Raider_Starship":
+                case "Yellow 2":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 3":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 4":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 5":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 6":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 7":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 8":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 9":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 10":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 11":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 12":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 13":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 14":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 15":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 16":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 17":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 18":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 19":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 20":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 21":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 22":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 23":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 24":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 25":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 26":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 27":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 28":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 29":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 30":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 31":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 32":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 33":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 34":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 35":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 36":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 37":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Yellow 38":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+                case "Ghost":
                   
                     if (invincible == false)
                     {
+                        position.Position = new Vector3(5.0f, 0.0f, 0.0f);
                         gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
+                       
+                        //Reset Ghost Position too
+                        //Play Sound
+                        Audio.PlayDeath();
                         --gameInstance.life;
                     }
                     else
                     {
                         position.Position = new Vector3(5.0f, 0.0f, 0.0f); // change to first Node
                         invincible = false;
+                        //PlaySound
+                        Audio.Playonce();
+
                         gameInstance.score+=10;
+                        
                     }
                     break;
 
@@ -180,22 +565,27 @@ namespace OpenGL_Game.Managers
         {
             entityAudio.Playonce();
             ++gameInstance.score;
+            ++gameInstance.count;
             gameInstance.entityManager.DeleteEntity(name);
-            geometry.Geometry().RemoveGeometry();
-
+            geometry.NullGeometry();
         }
     }
 
     class LineCollisionManager : CollisionManager
     {
         GameScene gameInstance = GameScene.gameInstance;
-
+        public static bool debug_line = false;
         public override void ProcessCollision(Entity entity)
         {
             switch (entity.Name)
             {
                 case "Maze":
-                    gameInstance.camera.cameraPosition = gameInstance.oldposition;
+
+                    if (debug_line == false)
+                    {
+                        //Bool something is false Debug blah blah
+                        gameInstance.camera.cameraPosition = gameInstance.oldposition;
+                    }
                     break;
 
                 default: break;

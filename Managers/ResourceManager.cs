@@ -6,6 +6,7 @@ using OpenTK.Graphics.OpenGL;
 using OpenGL_Game.OBJLoader;
 using System.IO;
 using OpenTK.Audio.OpenAL;
+using System.Linq;
 
 namespace OpenGL_Game.Managers
 {
