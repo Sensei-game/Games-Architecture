@@ -8,7 +8,7 @@ namespace OpenGL_Game.Components
 {
     class ComponentAI : IComponent
     {
-        public List<Points> Paths;
+        private readonly List<Points> Paths;
 
         public enum AIstates : byte
         {
@@ -33,7 +33,6 @@ namespace OpenGL_Game.Components
         public List<Points> list_paths
         {
             get { return Paths; }
-            set { Paths = value; }
         }
 
         public void Close()

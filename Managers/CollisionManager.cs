@@ -528,12 +528,12 @@ namespace OpenGL_Game.Managers
                     break;
 
                 case "Ghost 1":
-                  
+
                     if (invincible == false)
                     {
                         position.Position = new Vector3(5.0f, 0.0f, 0.0f);
                         gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
-                       
+
                         //Reset Ghost Position too
                         //Play Sound
                         Audio.PlayDeath();
@@ -546,8 +546,32 @@ namespace OpenGL_Game.Managers
                         //PlaySound
                         Audio.Playonce();
 
-                        gameInstance.score+=10;
-                        
+                        gameInstance.score += 10;
+
+                    }
+                    break;
+
+                case "Ghost 2":
+
+                    if (invincible == false)
+                    {
+                        position.Position = new Vector3(-5.50f, 0.1f, 9.50f);
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
+
+                        //Reset Ghost Position too
+                        //Play Sound
+                        Audio.PlayDeath();
+                        --gameInstance.life;
+                    }
+                    else
+                    {
+                        position.Position = new Vector3(-5.50f, 0.1f, 9.50f); // change to first Node
+                        invincible = false;
+                        //PlaySound
+                        Audio.Playonce();
+
+                        gameInstance.score += 10;
+
                     }
                     break;
 
@@ -569,6 +593,8 @@ namespace OpenGL_Game.Managers
             gameInstance.entityManager.DeleteEntity(name);
             geometry.NullGeometry();
         }
+
+ 
     }
 
     class LineCollisionManager : CollisionManager

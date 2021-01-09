@@ -1,12 +1,10 @@
 ﻿using OpenGL_Game.Components;
 using OpenGL_Game.Objects;
-using OpenGL_Game.OBJLoader;
 using OpenGL_Game.Scenes;
 using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace OpenGL_Game.Systems
 {
@@ -21,7 +19,14 @@ namespace OpenGL_Game.Systems
         //not private originally
        private Vector3 target;
        private Points current_target;
+        private Points current_target2;
+        private Points current_target3;
+        private Points current_target4;
+        private Points pass;
+
        private Vector3 Target;
+   
+
 
         //Points CurrentPoint;
 
@@ -55,12 +60,11 @@ namespace OpenGL_Game.Systems
 
                 ComponentAI path = (ComponentAI)pathComponent;
 
-                //Patrol(entity, position, path);
-                MoveAI(entity, /*velocity,*/ position, path);
+                MoveAI(entity, position, path);
             }
         }
 
-        private void MoveAI(Entity entity, /*ComponentVelocity velocity,*/ ComponentPosition position, ComponentAI path)
+        private void MoveAI(Entity entity, ComponentPosition position, ComponentAI path)
         {
             // switch(entity.Name)
             //{
@@ -72,10 +76,9 @@ namespace OpenGL_Game.Systems
             //if (CurrentPoint != path.Paths.Last())
             //{
 
-            
 
-            if (entity.Name == "Ghost 1" || entity.Name == "Ghost 2" || entity.Name == "Ghost 3" || entity.Name == "Ghost 4")
-            {
+            Vector3 newpos = position.Position;
+            
                 ///<summary>
                 ///for (int i = 0; i < path.list_paths.Count; i++)
                 ///{
@@ -95,7 +98,9 @@ namespace OpenGL_Game.Systems
                 /// </summary>
                 /// 
 
-                Vector3 newpos = position.Position;
+
+                
+
 
                 //different states for following paths and follwing player
 
@@ -112,7 +117,7 @@ namespace OpenGL_Game.Systems
 
                 
 
-                Alert(entity, position, path);
+                
                 //Alert
                 //if (path.currentstate == ComponentAI.AIstates.patrol)
                 //{ 
@@ -122,8 +127,12 @@ namespace OpenGL_Game.Systems
                 //{
                 //    target.point = Target;
                 //}
-                target = Target;
 
+            //lista 1 schimbata de lista 2 fa o diferentiere
+            
+                Alert1(entity, position.Position, path);
+                target = Target;
+           
 
 
                 if (target.X < position.Position.X)
@@ -169,13 +178,69 @@ namespace OpenGL_Game.Systems
 
                 position.Position = newpos;
 
-            }
+            
             //}
         }
 
-        private void Patrol(Entity entity, ComponentPosition position, ComponentAI state)
+        private void Patrol(Entity entity, Vector3 position, ComponentAI state)
         {
             //if()entity name =
+
+            switch(entity.Name)
+            {
+                case "Ghost 1":
+                    Ghost1(position, state);
+                    pass = current_target;
+                    break;
+
+                case "Ghost 2":
+                    Ghost2(position, state);
+                    pass = current_target2;
+                    break;
+
+                case "Ghost 3":
+                    //Ghost3(position, state);
+                    pass = current_target3;
+                    break;
+
+                case "Ghost 4":
+                   // Ghost4(position, state);
+                    pass = current_target4;
+                    break;
+
+            }
+            //change current_target for each Ghost
+            //Ghost1
+                      
+        }
+
+        private void Alert1(Entity entity,Vector3 position, ComponentAI state)
+        {
+             if(state.currentstate != ComponentAI.AIstates.disabled)
+             {
+                if(Vector3.Distance(position, GameScene.gameInstance.oldposition) < 5.0f)
+                {
+                    state.currentstate = ComponentAI.AIstates.chase;
+                   // System.Console.WriteLine(state.currentstate);
+
+                   Target = GameScene.gameInstance.oldposition;
+                    
+                    // target.point = GameScene.gameInstance.oldposition;
+                }
+                else if(Vector3.Distance(position, GameScene.gameInstance.oldposition) >= 5.0f)
+                {
+                    state.currentstate = ComponentAI.AIstates.patrol;
+                   // System.Console.WriteLine(state.currentstate);
+                    Patrol(entity, position, state);
+                    //  low_alert = true;
+
+                    Target = pass.point;
+                }
+             }
+        }
+
+        private void Ghost1(Vector3 position, ComponentAI state)
+        {
             if (state.currentstate == ComponentAI.AIstates.patrol)
             {
                 foreach (Points Point in state.list_paths)
@@ -190,13 +255,13 @@ namespace OpenGL_Game.Systems
                     //else
 
                     //difference of position, not checking if is at the end of the list of points
-                    if (position.Position == Point.point)
+                    if (position == Point.point)
                     {
                         //CurrentPoint = Point;
                         if (state.list_paths.Count == state.list_paths.IndexOf(Point) + 1)
                         {
                             current_target = state.list_paths.ElementAt(0);
-                           // target = current_target;
+                            // target = current_target;
                             break;
                         }
 
@@ -215,33 +280,139 @@ namespace OpenGL_Game.Systems
                     //    break;
                     //}
                 }
-            }           
+            }
         }
 
-        private void Alert(Entity entity, ComponentPosition position, ComponentAI state)
+        private void Ghost2(Vector3 position, ComponentAI state)
         {
-             if(state.currentstate != ComponentAI.AIstates.disabled)
-             {
-                if(Vector3.Distance(position.Position, GameScene.gameInstance.oldposition) < 5.0f)
+            if (state.currentstate == ComponentAI.AIstates.patrol)
+            {
+                foreach (Points Point in state.list_paths)
                 {
-                    state.currentstate = ComponentAI.AIstates.chase;
-                   // System.Console.WriteLine(state.currentstate);
+                    //if(low_alert == true)
+                    //{
+                    //    low_alert = false;
 
-                   Target = GameScene.gameInstance.oldposition;
-                    
-                    // target.point = GameScene.gameInstance.oldposition;
+
+
+                    //}
+                    //else
+
+                    //difference of position, not checking if is at the end of the list of points
+                    if (position == Point.point)
+                    {
+                        //CurrentPoint = Point;
+                        if (state.list_paths.Count == state.list_paths.IndexOf(Point) + 1)
+                        {
+                            current_target2 = state.list_paths.ElementAt(0);
+                            // target = current_target;
+                            break;
+                        }
+
+                        //NEW target is the current Point 
+
+                        else
+                        {
+                            current_target2 = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 1);
+                            //target = current_target;
+                            break;
+                        }
+                    }
+                    //else
+                    //{
+                    //    target = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 2);
+                    //    break;
+                    //}
                 }
-                else if(Vector3.Distance(position.Position, GameScene.gameInstance.oldposition) >= 5.0f)
+            }
+        }
+        private void Ghost3(Vector3 position, ComponentAI state)
+        {
+            if (state.currentstate == ComponentAI.AIstates.patrol)
+            {
+                foreach (Points Point in state.list_paths)
                 {
-                    state.currentstate = ComponentAI.AIstates.patrol;
-                   // System.Console.WriteLine(state.currentstate);
-                    Patrol(entity, position, state);
-                    //  low_alert = true;
+                    //if(low_alert == true)
+                    //{
+                    //    low_alert = false;
 
-                    Target = current_target.point;
+
+
+                    //}
+                    //else
+
+                    //difference of position, not checking if is at the end of the list of points
+                    if (position == Point.point)
+                    {
+                        //CurrentPoint = Point;
+                        if (state.list_paths.Count == state.list_paths.IndexOf(Point) + 1)
+                        {
+                            current_target3 = state.list_paths.ElementAt(0);
+                            // target = current_target;
+                            break;
+                        }
+
+                        //NEW target is the current Point 
+
+                        else
+                        {
+                            current_target3 = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 1);
+                            //target = current_target;
+                            break;
+                        }
+                    }
+                    //else
+                    //{
+                    //    target = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 2);
+                    //    break;
+                    //}
                 }
-             }
+            }
         }
 
+        private void Ghost4(Vector3 position, ComponentAI state)
+        {
+            if (state.currentstate == ComponentAI.AIstates.patrol)
+            {
+                foreach (Points Point in state.list_paths)
+                {
+                    //if(low_alert == true)
+                    //{
+                    //    low_alert = false;
+
+
+
+                    //}
+                    //else
+
+                    //difference of position, not checking if is at the end of the list of points
+                    if (position == Point.point)
+                    {
+                        //CurrentPoint = Point;
+                        if (state.list_paths.Count == state.list_paths.IndexOf(Point) + 1)
+                        {
+                            current_target4 = state.list_paths.ElementAt(0);
+                            // target = current_target;
+                            break;
+                        }
+
+                        //NEW target is the current Point 
+
+                        else
+                        {
+                            current_target4 = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 1);
+                            //target = current_target;
+                            break;
+                        }
+                    }
+                    //else
+                    //{
+                    //    target = state.list_paths.ElementAt(state.list_paths.IndexOf(Point) + 2);
+                    //    break;
+                    //}
+                }
+            }
+        }
     }
 }
+

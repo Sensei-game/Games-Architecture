@@ -34,7 +34,6 @@ namespace OpenGL_Game.Scenes
         public int life = 3;
 
         private bool AI_Debug = false;
-        private bool LINE_Debug = false;
 
         //public CollisionManager SpherecollisionManager;
         //public CollisionManager LinecollisionManager;
@@ -86,7 +85,14 @@ namespace OpenGL_Game.Scenes
         {
             Entity newEntity;
             List<Coordinates> list = LimitList();
-            List<Points> path = PathList();
+
+            List<Points> path1 = PathList1();
+            
+            List<Points> path2 = PathList2();
+
+            List<Points> path3 = PathList3();
+
+            List<Points> path4 = PathList4();
 
             newEntity = new Entity("Blue 1");
             newEntity.AddComponent(new ComponentPosition(-5.0f, 1.0f, 0.0f));
@@ -400,6 +406,11 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentGeometry("Geometry/Maze/maze.obj"));
             entityManager.AddEntity(newEntity);
 
+            newEntity = new Entity("Skybox");
+            newEntity.AddComponent(new ComponentPosition(0.0f, 0.0f, 0.0f));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Skybox/skybox.obj"));
+            entityManager.AddEntity(newEntity);
+
             newEntity = new Entity("Ground");
             newEntity.AddComponent(new ComponentPosition(26.5f, 0.80f, -24.0f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ground/ground final.obj"));
@@ -409,23 +420,23 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
             newEntity.AddComponent(new ComponentSphereCollision(1f));
             newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            newEntity.AddComponent(new ComponentAI(path));
+            newEntity.AddComponent(new ComponentAI(path1));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
             entityManager.AddEntity(newEntity);
 
-            //newEntity = new Entity("Ghost 2");
-            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-            //newEntity.AddComponent(new ComponentSphereCollision(1f));
-            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            //newEntity.AddComponent(new ComponentAI(path));
-            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
-            //entityManager.AddEntity(newEntity);
+            newEntity = new Entity("Ghost 2");
+            newEntity.AddComponent(new ComponentPosition(-5.50f, 0.1f, 9.50f));
+            newEntity.AddComponent(new ComponentSphereCollision(1f));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            newEntity.AddComponent(new ComponentAI(path2));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            entityManager.AddEntity(newEntity);
 
             //newEntity = new Entity("Ghost 3");
             //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
             //newEntity.AddComponent(new ComponentSphereCollision(1f));
             //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            //newEntity.AddComponent(new ComponentAI(path));
+            //newEntity.AddComponent(new ComponentAI(path3));
             //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
             //entityManager.AddEntity(newEntity);
 
@@ -433,7 +444,7 @@ namespace OpenGL_Game.Scenes
             //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
             //newEntity.AddComponent(new ComponentSphereCollision(1f));
             //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            //newEntity.AddComponent(new ComponentAI(path));
+            //newEntity.AddComponent(new ComponentAI(path4));
             //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
             //entityManager.AddEntity(newEntity);
 
@@ -511,23 +522,68 @@ namespace OpenGL_Game.Scenes
             return limits;
         }
 
-        private List<Points> PathList()
+        private List<Points> PathList1()
         {
             List<Points> points = new List<Points>();
 
             points.Add(new Points(new Vector3(5.0f, 0.0f, 0.0f))); //initial position of the entity
             points.Add(new Points(new Vector3(5.0f, 0.0f, 7.0f)));  // target position
             points.Add(new Points(new Vector3(-0.5f, 0.0f, 24.15f)));
-            points.Add(new Points(new Vector3(0.0f, 0.0f, 0.0f)));
+            points.Add(new Points(new Vector3(11.30f, 0.0f, 23.35f)));
+            points.Add(new Points(new Vector3(19.15f, 0.0f, 15.60f)));
+            points.Add(new Points(new Vector3(19.25f, 0.0f, 4.60f)));
+            points.Add(new Points(new Vector3(6.45f, 0.0f, 3.90f)));
+
 
             return points;
         }
-       
-        
+        private List<Points> PathList2()
+        {
+            List<Points> points = new List<Points>();
+
+            points.Add(new Points(new Vector3(-5.50f, 0.1f, 9.50f)));
+            points.Add(new Points(new Vector3(-5.60f, 0.1f, 5.00f)));
+            points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
+            points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
+            points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
+
+
+            return points;
+        }
+
+        private List<Points> PathList3()
+        {
+            List<Points> points = new List<Points>();
+
+            points.Add(new Points(new Vector3(-5.50f, 0.1f, 9.50f)));
+            points.Add(new Points(new Vector3(-5.60f, 0.1f, 5.00f)));
+            points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
+            points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
+            points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
+
+
+            return points;
+        }
+
+        private List<Points> PathList4()
+        {
+            List<Points> points = new List<Points>();
+
+            points.Add(new Points(new Vector3(-5.50f, 0.1f, 9.50f)));
+            points.Add(new Points(new Vector3(-5.60f, 0.1f, 5.00f)));
+            points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
+            points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
+            points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
+
+
+            return points;
+        }
+
+
         //lIST OF POSITIONS/nODES FOR ai
 
         //2Collision Sphere one actuall collision one for the player
-        
+
         // Nodes for patrolls, when player is near follow Player position, give it more Velocity(in a manager)
 
         // Add LineCollision COmponent to ghosts 

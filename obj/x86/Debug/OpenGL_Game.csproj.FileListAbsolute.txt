@@ -48,3 +48,6 @@ E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\D
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro points.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro super.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Ghost kill.wav
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Textures\Skybox\skybox texture.png
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox.mtl
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox.obj
