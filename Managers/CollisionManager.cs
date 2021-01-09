@@ -527,7 +527,7 @@ namespace OpenGL_Game.Managers
 
                     break;
 
-                case "Ghost":
+                case "Ghost 1":
                   
                     if (invincible == false)
                     {

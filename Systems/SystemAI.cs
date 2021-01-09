@@ -74,7 +74,7 @@ namespace OpenGL_Game.Systems
 
             
 
-            if (entity.Name == "Ghost")
+            if (entity.Name == "Ghost 1" || entity.Name == "Ghost 2" || entity.Name == "Ghost 3" || entity.Name == "Ghost 4")
             {
                 ///<summary>
                 ///for (int i = 0; i < path.list_paths.Count; i++)

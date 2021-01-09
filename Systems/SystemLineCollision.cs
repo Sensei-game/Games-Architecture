@@ -59,13 +59,13 @@ namespace OpenGL_Game.Systems
                 foreach(Coordinates Limit in collision.limits_coordinates)
                 {
 
-                    float cameraX = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.X, 1);
-                    float cameraZ = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.Z, 1);
+                    float cameraX = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.X, 4);
+                    float cameraZ = (float)Math.Round(GameScene.gameInstance.camera.cameraPosition.Z, 4);
 
                     //float cameraX = GameScene.gameInstance.camera.cameraPosition.X;
                     //float cameraZ = GameScene.gameInstance.camera.cameraPosition.Z;
 
-                    if (((Limit.PointA.X <= cameraX) && (Limit.PointB.X >= cameraX)) && ((Limit.PointA.Z <= cameraZ) && (Limit.PointB.Z >= cameraZ))) 
+                    if ((Limit.PointA.X <= cameraX) && (Limit.PointB.X >= cameraX) && (Limit.PointA.Z <= cameraZ) && (Limit.PointB.Z >= cameraZ))
                     {
                         //System.Console.WriteLine("Collision happening with Limit");
                         lineHabit.ProcessCollision(entity);

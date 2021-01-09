@@ -405,19 +405,108 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ground/ground final.obj"));
             entityManager.AddEntity(newEntity);
 
-            newEntity = new Entity("Ghost");
+            newEntity = new Entity("Ghost 1");
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
             newEntity.AddComponent(new ComponentSphereCollision(1f));
             newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
             newEntity.AddComponent(new ComponentAI(path));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
-            entityManager.AddEntity(newEntity);          
+            entityManager.AddEntity(newEntity);
+
+            //newEntity = new Entity("Ghost 2");
+            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentSphereCollision(1f));
+            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            //newEntity.AddComponent(new ComponentAI(path));
+            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            //entityManager.AddEntity(newEntity);
+
+            //newEntity = new Entity("Ghost 3");
+            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentSphereCollision(1f));
+            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            //newEntity.AddComponent(new ComponentAI(path));
+            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            //entityManager.AddEntity(newEntity);
+
+            //newEntity = new Entity("Ghost 4");
+            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentSphereCollision(1f));
+            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            //newEntity.AddComponent(new ComponentAI(path));
+            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            //entityManager.AddEntity(newEntity);
+
         }
 
         private List<Coordinates> LimitList()
         {
             List<Coordinates> limits = new List<Coordinates>();
+
             limits.Add(new Coordinates(new Vector3(-3.04f, 1.00f, 11.06f), new Vector3(-2.87f, 1.00f, 20.80f)));
+            limits.Add(new Coordinates(new Vector3(-17.71f, 1.00f, 15.47f), new Vector3(-13.02f, 1.00f, 15.52f)));
+            limits.Add(new Coordinates(new Vector3(-13.02f, 1.00f, 15.52f), new Vector3(-12.78f, 1.00f, 20.70f)));
+            limits.Add(new Coordinates(new Vector3(-12.78f, 1.00f, 20.70f), new Vector3(-2.87f, 1.00f, 20.80f)));
+            //WHY DO THEY NOT WORK
+            limits.Add(new Coordinates(new Vector3(2.35f, 1f, -14.01f), new Vector3(10.95f, 1f, -13.92f)));
+            limits.Add(new Coordinates(new Vector3(-7.57f, 1f,11.11f), new Vector3(-2.81f, 1f, 11.19f)));
+            limits.Add(new Coordinates(new Vector3(-8.12f, 1f, 5.74f), new Vector3(-7.57f, 1f, 11.11f)));
+            limits.Add(new Coordinates(new Vector3(-17.55f, 1f, 5.69f), new Vector3(-8.12f, 1f, 5.74f)));
+            limits.Add(new Coordinates(new Vector3(-18.28f, 1f, 5.69f), new Vector3(-17.55f, 1f, 15.78f)));
+
+            limits.Add(new Coordinates(new Vector3(-22.64f, 1f, -8.75f), new Vector3(-22.59f, 1f, 15.88f)));
+            limits.Add(new Coordinates(new Vector3(-27.77f, 1f, 16.20f), new Vector3(-23.14f, 1f, 16.54f)));
+            limits.Add(new Coordinates(new Vector3(-27.77f, 1f, 16.20f), new Vector3(-27.58f, 1f, 30.81f)));
+            limits.Add(new Coordinates(new Vector3(-27.58f, 1f, 30.53f), new Vector3(-13.29f,1f,30.81f)));
+            limits.Add(new Coordinates(new Vector3(-13.39f,1f,26.03f), new Vector3(-13.28f, 1f, 30.22f)));
+
+            limits.Add(new Coordinates(new Vector3(-12.90f, 1f, 25.65f), new Vector3(11.99f,1f,25.74f)));
+            limits.Add(new Coordinates(new Vector3(12.50f, 1f, 26.12f), new Vector3(12.61f,1f,30.87f)));
+            limits.Add(new Coordinates(new Vector3(12.39f, 1f, 30.49f), new Vector3(26.76f, 1f, 30.79f)));
+            limits.Add(new Coordinates(new Vector3(26.46f, 1f, 16.14f), new Vector3(26.50f, 1f, 30.49f)));
+            limits.Add(new Coordinates(new Vector3( 21.96f, 1f, 16.28f), new Vector3(26.65f, 1f, 16.64f)));
+
+            limits.Add(new Coordinates(new Vector3(21.55f, 1f, -9.01f), new Vector3(21.60f, 1f, 15.90f)));
+            limits.Add(new Coordinates(new Vector3(22.02f, 1f,  -9.52f), new Vector3(26.79f, 1f, -9.32f)));
+            limits.Add(new Coordinates(new Vector3(26.38f, 1f, -23.58f), new Vector3(26.49f, 1f, -9.51f)));
+            limits.Add(new Coordinates(new Vector3(12.17f, 1f, -23.48f), new Vector3(26.37f, 1f, -23.34f)));
+            limits.Add(new Coordinates(new Vector3(12.47f, 1f, -23.50f), new Vector3(12.51f, 1f, -19.13f)));
+
+            limits.Add(new Coordinates(new Vector3(-12.97f, 1f,-18.69f), new Vector3(11.86f, 1f, -18.46f)));
+            limits.Add(new Coordinates(new Vector3(-13.59f, 1f, -23.78f), new Vector3(-13.29f, 1f, -19.05f)));
+            limits.Add(new Coordinates(new Vector3(-27.74f, 1f, -23.41f), new Vector3(-13.61f, 1f, -23.28f)));
+            limits.Add(new Coordinates(new Vector3(-27.20f, 1f, -23.67f), new Vector3(-27.12f, 1f, -9.28f)));
+            limits.Add(new Coordinates(new Vector3(-27.37f, 1f, -9.63f), new Vector3(-22.97f, 1f, -9.49f)));
+
+            limits.Add(new Coordinates(new Vector3(-17.79f, 1f, 1.30f), new Vector3(-8.35f, 1f,  1.66f)));
+            limits.Add(new Coordinates(new Vector3(-18.63f, 1f, -8.98f), new Vector3(-18.53f, 1f, 0.89f)));
+            limits.Add(new Coordinates(new Vector3(-17.79f, 1f, -10.00f), new Vector3(-13.13f,1f, -9.75f)));
+            limits.Add(new Coordinates(new Vector3(-13.83f, 1f, -13.95f), new Vector3(-13.63f, 1f, -9.46f)));
+            limits.Add(new Coordinates(new Vector3(-12.86f, 1f, -14.74f), new Vector3(-3.01f, 1f, -14.58f)));
+            limits.Add(new Coordinates(new Vector3(-2.60f, 1f, -13.74f), new Vector3(-2.45f, 1f, -4.17f)));
+            limits.Add(new Coordinates(new Vector3(-7.61f, 1f, -3.66f), new Vector3(-3.13f, 1f, -3.40f)));
+            limits.Add(new Coordinates(new Vector3(-7.73f, 1f, -3.53f), new Vector3(-7.42f, 1f, 0.98f)));
+
+            limits.Add(new Coordinates(new Vector3(1.36f, 1f, -13.96f), new Vector3(1.39f, 1f, -4.23f)));
+            limits.Add(new Coordinates(new Vector3(2.15f, 1f, -14.68f), new Vector3(12.01f, 1f, -14.48f)));
+            limits.Add(new Coordinates(new Vector3(12.67f, 1f, -13.67f), new Vector3(12.81f, 1f, -9.20f)));
+            limits.Add(new Coordinates(new Vector3(12.52f, 1f,-9.70f), new Vector3(16.97f, 1f, -9.48f)));
+            limits.Add(new Coordinates(new Vector3(17.45f, 1f, -8.81f), new Vector3(17.76f, 1f, 0.97f)));
+            limits.Add(new Coordinates(new Vector3(7.03f, 1f, 1.29f), new Vector3(16.61f, 1f, 1.41f)));
+            limits.Add(new Coordinates(new Vector3(6.17f, 1f, -3.81f), new Vector3(6.67f, 1f, 0.76f)));
+            limits.Add(new Coordinates(new Vector3(2.22f, 1f,  -3.45f), new Vector3(6.58f, 1f, -3.34f)));
+
+            limits.Add(new Coordinates(new Vector3(7.35f, 1f, 5.40f), new Vector3(16.99f, 1f, 5.55f)));
+            limits.Add(new Coordinates(new Vector3(6.41f, 1f, 6.07f), new Vector3(6.44f, 1f, 10.63f)));
+            limits.Add(new Coordinates(new Vector3(2.16f, 1f, 10.15f), new Vector3(6.68f, 1f, 10.64f)));
+            limits.Add(new Coordinates(new Vector3(1.51f, 1f, 11.03f), new Vector3(1.60f, 1f, 20.80f)));
+            limits.Add(new Coordinates(new Vector3(2.26f, 1f, 21.41f), new Vector3(11.70f, 1f, 21.46f)));
+            limits.Add(new Coordinates(new Vector3( 12.57f, 1f, 16.59f), new Vector3(12.62f, 1f, 20.79f)));
+            limits.Add(new Coordinates(new Vector3(12.28f, 1f, 16.47f), new Vector3(16.79f, 1f, 16.49f)));
+            limits.Add(new Coordinates(new Vector3(17.24f, 1f,  6.22f), new Vector3(17.48f, 1f, 15.67f)));
+            limits.Add(new Coordinates(new Vector3(7.18f, 1f, 5.43f), new Vector3(16.86f, 1f, 5.67f)));
+            limits.Add(new Coordinates(new Vector3(12.44f, 1f, 16.72f), new Vector3(12.81f, 1f, 20.45f)));
+            limits.Add(new Coordinates(new Vector3( 12.81f, 1f, 16.68f), new Vector3(16.25f, 1f, 16.94f)));
 
             return limits;
         }
@@ -602,7 +691,7 @@ namespace OpenGL_Game.Scenes
             GUI.clearColour = Color.Transparent;
             GUI.Label(new Rectangle(0, 0, (int)width, (int)(fontSize * 2f)), "Score: " + score, 18, StringAlignment.Near, Color.GreenYellow);
             GUI.Label(new Rectangle(0, 25, (int)width, (int)(fontSize * 2f)), "AI_Debug Mode: " + AI_Debug, 18, StringAlignment.Near, Color.White);
-            GUI.Label(new Rectangle(0, 60, (int)width, (int)(fontSize * 2f)), "AI_LineCollsion Mode: " + LineCollisionManager.debug_line, 18, StringAlignment.Near, Color.White);
+            GUI.Label(new Rectangle(0, 60, (int)width, (int)(fontSize * 2f)), "LineCollsion_Debug Mode: " + LineCollisionManager.debug_line, 18, StringAlignment.Near, Color.White);
             GUI.Label(new Rectangle(700, 15, (int)width, (int)(fontSize * 2f)), "Lifes: " + life, 18, StringAlignment.Near, Color.Coral);
             GUI.Render();
         }
