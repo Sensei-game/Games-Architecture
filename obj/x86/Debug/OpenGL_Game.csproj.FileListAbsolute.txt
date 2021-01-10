@@ -49,5 +49,10 @@ E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\D
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Retro super.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Audio\Ghost kill.wav
 E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Textures\Skybox\skybox texture.png
-E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox.mtl
-E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox.obj
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Textures\Skybox\sky1.png
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox2.mtl
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skybox2.obj
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skydome.mtl
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\skydome.obj
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\sky54.mtl
+E:\Facultate\AN FINAL\Games-Architecture-main\Games-Architecture\bin\WindowsGL\Debug\Geometry\Skybox\sky54.obj

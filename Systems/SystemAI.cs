@@ -199,12 +199,12 @@ namespace OpenGL_Game.Systems
                     break;
 
                 case "Ghost 3":
-                    //Ghost3(position, state);
+                    Ghost3(position, state);
                     pass = current_target3;
                     break;
 
                 case "Ghost 4":
-                   // Ghost4(position, state);
+                    Ghost4(position, state);
                     pass = current_target4;
                     break;
 

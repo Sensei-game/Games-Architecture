@@ -185,6 +185,18 @@ namespace OpenGL_Game.Managers
 
                     break;
 
+                case "Blue 6":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    Superstate();//No Superstate for Yellow Points
+
+                    //PlaySound will also update position
+
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
                 case "Yellow 1":
 
                     //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
@@ -527,12 +539,22 @@ namespace OpenGL_Game.Managers
 
                     break;
 
+                case "Yellow 39":
+
+                    //gameInstance.camera.cameraPosition = gameInstance.oldposition; /*new Vector3(0.0f, 1.0f, 0.0f);*/
+
+                    //PlaySound will also update position
+                    Remove(entity.Name, Audio, geometry);
+
+                    break;
+
+
                 case "Ghost 1":
 
                     if (invincible == false)
                     {
                         position.Position = new Vector3(5.0f, 0.0f, 0.0f);
-                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, 0.0f);
 
                         //Reset Ghost Position too
                         //Play Sound
@@ -556,7 +578,55 @@ namespace OpenGL_Game.Managers
                     if (invincible == false)
                     {
                         position.Position = new Vector3(-5.50f, 0.1f, 9.50f);
-                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, -15.0f);
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, 0.0f);
+
+                        //Reset Ghost Position too
+                        //Play Sound
+                        Audio.PlayDeath();
+                        --gameInstance.life;
+                    }
+                    else
+                    {
+                        position.Position = new Vector3(-5.50f, 0.1f, 9.50f); // change to first Node
+                        invincible = false;
+                        //PlaySound
+                        Audio.Playonce();
+
+                        gameInstance.score += 10;
+
+                    }
+                    break;
+
+                case "Ghost 3":
+
+                    if (invincible == false)
+                    {
+                        position.Position = new Vector3(-5.15f, 0.1f, -1.75f);
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, 0f);
+
+                        //Reset Ghost Position too
+                        //Play Sound
+                        Audio.PlayDeath();
+                        --gameInstance.life;
+                    }
+                    else
+                    {
+                        position.Position = new Vector3(5.25f, 0.2f, 9.25f); // change to first Node
+                        invincible = false;
+                        //PlaySound
+                        Audio.Playonce();
+
+                        gameInstance.score += 10;
+
+                    }
+                    break;
+
+                case "Ghost 4":
+
+                    if (invincible == false)
+                    {
+                        position.Position = new Vector3(-5.50f, 0.1f, 0f);
+                        gameInstance.camera.cameraPosition = new Vector3(0.0f, 1.0f, 0.0f);
 
                         //Reset Ghost Position too
                         //Play Sound

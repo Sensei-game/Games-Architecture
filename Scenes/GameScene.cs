@@ -134,6 +134,14 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentGeometry("Geometry/Blue Orb/Fixed Blue Orb.obj"));
             entityManager.AddEntity(newEntity);
 
+            newEntity = new Entity("Blue 6");
+            newEntity.AddComponent(new ComponentPosition(5.46f, 1.0f, 9.14f));
+            newEntity.AddComponent(new ComponentVelocity(0.0f, +0.05f, 0.0f));
+            newEntity.AddComponent(new ComponentAudio("Audio/buzz.wav"));
+            newEntity.AddComponent(new ComponentSphereCollision(1f));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Blue Orb/Fixed Blue Orb.obj"));
+            entityManager.AddEntity(newEntity);
+
             newEntity = new Entity("Yellow 1");
             newEntity.AddComponent(new ComponentPosition(5.0f, 0.5f, 0.0f));
             newEntity.AddComponent(new ComponentAudio("Audio/Retro points.wav"));
@@ -149,7 +157,7 @@ namespace OpenGL_Game.Scenes
             entityManager.AddEntity(newEntity);
 
             newEntity = new Entity("Yellow 3");
-           // newEntity.AddComponent(new ComponentPosition(-25.65f, 0.5f, -19.30f));
+            newEntity.AddComponent(new ComponentPosition(-25.65f, 0.5f, -19.30f));
             newEntity.AddComponent(new ComponentAudio("Audio/Retro points.wav"));
             newEntity.AddComponent(new ComponentSphereCollision(1f));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Yellow Orb/Fixed Yellow Orb.obj"));
@@ -400,16 +408,23 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentGeometry("Geometry/Yellow Orb/Fixed Yellow Orb.obj"));
             entityManager.AddEntity(newEntity);
 
+            newEntity = new Entity("Yellow 39");
+            newEntity.AddComponent(new ComponentPosition(-5.65f, 0.5f, 9.16f));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro points.wav"));
+            newEntity.AddComponent(new ComponentSphereCollision(1f));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Yellow Orb/Fixed Yellow Orb.obj"));
+            entityManager.AddEntity(newEntity);
+
             newEntity = new Entity("Maze");
             newEntity.AddComponent(new ComponentPosition(28.0f, -0.5f, -25.0f));
             newEntity.AddComponent(new ComponentLineCollision(list));
             newEntity.AddComponent(new ComponentGeometry("Geometry/Maze/maze.obj"));
             entityManager.AddEntity(newEntity);
 
-            newEntity = new Entity("Skybox");
-            newEntity.AddComponent(new ComponentPosition(0.0f, 0.0f, 0.0f));
-            newEntity.AddComponent(new ComponentGeometry("Geometry/Skybox/skybox.obj"));
-            entityManager.AddEntity(newEntity);
+            //newEntity = new Entity("Skybox");
+            //newEntity.AddComponent(new ComponentPosition(0.0f, 0.0f, 0.0f));
+            //newEntity.AddComponent(new ComponentGeometry("Geometry/Skybox/sky54.obj"));
+            //entityManager.AddEntity(newEntity);
 
             newEntity = new Entity("Ground");
             newEntity.AddComponent(new ComponentPosition(26.5f, 0.80f, -24.0f));
@@ -432,21 +447,21 @@ namespace OpenGL_Game.Scenes
             newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
             entityManager.AddEntity(newEntity);
 
-            //newEntity = new Entity("Ghost 3");
-            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-            //newEntity.AddComponent(new ComponentSphereCollision(1f));
-            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            //newEntity.AddComponent(new ComponentAI(path3));
-            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
-            //entityManager.AddEntity(newEntity);
+            newEntity = new Entity("Ghost 3");
+            newEntity.AddComponent(new ComponentPosition(-5.15f, 0.1f, -1.75f));
+            newEntity.AddComponent(new ComponentSphereCollision(1f));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            newEntity.AddComponent(new ComponentAI(path3));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            entityManager.AddEntity(newEntity);
 
-            //newEntity = new Entity("Ghost 4");
-            //newEntity.AddComponent(new ComponentPosition(5.0f, 0.0f, 0.0f));
-            //newEntity.AddComponent(new ComponentSphereCollision(1f));
-            //newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
-            //newEntity.AddComponent(new ComponentAI(path4));
-            //newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
-            //entityManager.AddEntity(newEntity);
+            newEntity = new Entity("Ghost 4");
+            newEntity.AddComponent(new ComponentPosition(5.25f, 0.2f, 9.25f));
+            newEntity.AddComponent(new ComponentSphereCollision(1f));
+            newEntity.AddComponent(new ComponentAudio("Audio/Retro super.wav"));
+            newEntity.AddComponent(new ComponentAI(path4));
+            newEntity.AddComponent(new ComponentGeometry("Geometry/Ghost/Dumb Ghost.obj"));
+            entityManager.AddEntity(newEntity);
 
         }
 
@@ -546,7 +561,8 @@ namespace OpenGL_Game.Scenes
             points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
             points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
             points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
-
+            points.Add(new Points(new Vector3(0f, 0.1f, 23.50f)));
+            points.Add(new Points(new Vector3(0.35f, 0.1f, 10.45f)));
 
             return points;
         }
@@ -555,12 +571,16 @@ namespace OpenGL_Game.Scenes
         {
             List<Points> points = new List<Points>();
 
-            points.Add(new Points(new Vector3(-5.50f, 0.1f, 9.50f)));
-            points.Add(new Points(new Vector3(-5.60f, 0.1f, 5.00f)));
-            points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
-            points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
-            points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
-
+            points.Add(new Points(new Vector3(-5.15f, 0.1f, -1.75f)));
+            points.Add(new Points(new Vector3(-0.40f, 0.1f, -1.05f)));
+            points.Add(new Points(new Vector3(-0.55f, 0.1f, -16.35f)));
+            points.Add(new Points(new Vector3(-13.85f, 0.1f, -16.25f)));
+            points.Add(new Points(new Vector3(-18.80f, 0.1f, -21.90f)));
+            points.Add(new Points(new Vector3(-26f, 0.1f, -21.70f)));
+            points.Add(new Points(new Vector3(-25.80f, 0.1f, -11.95f)));
+            points.Add(new Points(new Vector3(-20.60f, 0.1f, -12f)));
+            points.Add(new Points(new Vector3(-20.45f, 0.1f, 2.60f)));
+            points.Add(new Points(new Vector3(-3.25f, 0.1f, 3.25f)));
 
             return points;
         }
@@ -569,11 +589,16 @@ namespace OpenGL_Game.Scenes
         {
             List<Points> points = new List<Points>();
 
-            points.Add(new Points(new Vector3(-5.50f, 0.1f, 9.50f)));
-            points.Add(new Points(new Vector3(-5.60f, 0.1f, 5.00f)));
-            points.Add(new Points(new Vector3(-18.95f, 0.1f, 3.50f)));
-            points.Add(new Points(new Vector3(-21.20f, 0.1f, 19.90f)));
-            points.Add(new Points(new Vector3(-22.70f, 0.1f, 25.25f)));
+            points.Add(new Points(new Vector3(5.25f, 0.2f, 9.25f)));
+            points.Add(new Points(new Vector3(4.10f, 0.2f, 3.95f)));
+            points.Add(new Points(new Vector3(19.40f, 0.2f, 2.90f)));
+            points.Add(new Points(new Vector3(19.45f, 0.2f, -9.80f)));
+            points.Add(new Points(new Vector3(25.05f, 0.2f, -10.75f)));
+            points.Add(new Points(new Vector3(25.40f, 0.2f, -21.95f)));
+            points.Add(new Points(new Vector3(14.90f, 0.2f, -21.35f)));
+            points.Add(new Points(new Vector3(13.30f, 0.2f, -16.05f)));
+            points.Add(new Points(new Vector3(-0.70f, 0.2f, -17.65f)));
+            points.Add(new Points(new Vector3(-0.00f, 0.2f, -2.15f)));
 
 
             return points;
@@ -718,7 +743,7 @@ namespace OpenGL_Game.Scenes
                 sceneManager.ChangeScene((SceneTypes)3);
             }
 
-            if(count >= 42)
+            if(count >= 45)
             {
                 sceneManager.ChangeScene((SceneTypes)3);
             }

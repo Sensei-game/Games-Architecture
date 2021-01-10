@@ -181,10 +181,22 @@
     <None Include="Geometry\Moon\moon.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Geometry\Skybox\skybox.mtl">
+    <None Include="Geometry\Skybox\sky54.mtl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Geometry\Skybox\skybox.obj">
+    <None Include="Geometry\Skybox\sky54.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Geometry\Skybox\skybox2.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Geometry\Skybox\skybox2.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Geometry\Skybox\skydome.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Geometry\Skybox\skydome.obj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Geometry\Wraith_Raider_Starship\Wraith_Raider_Starship.mtl">
@@ -257,8 +269,11 @@
     <Content Include="Textures\Maze\brick.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Textures\Skybox\skybox texture.png">
+    <Content Include="Textures\Skybox\sky1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\Skybox\skybox texture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Textures\Spaceship\Intergalactic_Spaceship_color_4.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

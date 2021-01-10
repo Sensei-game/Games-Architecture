@@ -114,6 +114,9 @@ namespace OpenGL_Game.Systems
                 case "Blue 5":
                     Calculate(position);
                     break;
+                case "Blue 6":
+                    Calculate(position);
+                    break;
 
                 default:break;
             }           

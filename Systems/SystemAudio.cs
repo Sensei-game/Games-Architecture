@@ -47,7 +47,7 @@ namespace OpenGL_Game.Systems
         private void PlayPosition(Entity entity, Vector3 pos, ComponentAudio audio)
         {
             //change this to blues
-            if (entity.Name == "Blue 1" || entity.Name == "Blue 2" || entity.Name == "Blue 3" || entity.Name == "Blue 4" || entity.Name == "Blue 5")
+            if (entity.Name == "Blue 1" || entity.Name == "Blue 2" || entity.Name == "Blue 3" || entity.Name == "Blue 4" || entity.Name == "Blue 5" || entity.Name == "Blue 6")
             {
                 audio.SetMovingPosition(pos);
             }
